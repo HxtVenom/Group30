@@ -1,0 +1,29 @@
+* {
+	font-family: sans-serif;
+}
+
+/*Responsive Web Design Stuff*/
+.row {
+	margin: 10px;
+}
+
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.c-1 {
+	width: 25%;
+	float: left;
+}
+
+.c-2 {
+	width: 50%;
+	float: center;
+}
+
+.c-3 {
+	width: 25%;
+	float: right;
+}
