@@ -2,28 +2,22 @@
 	font-family: sans-serif;
 }
 
+p, h1 {
+	text-align: center;
+}
+
+
 /*Responsive Web Design Stuff*/
 .row {
 	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .row::after {
 	content: "";
 	clear: both;
 	display: table;
-}
-
-.c-1 {
-	width: 25%;
-	float: left;
-}
-
-.c-2 {
-	width: 50%;
-	float: center;
-}
-
-.c-3 {
-	width: 25%;
-	float: right;
 }
