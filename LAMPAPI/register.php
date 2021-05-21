@@ -1,30 +1,28 @@
-<?php
-
+<?php 
+  
   //Setup Connection Info
   $server = "";
   $dbUsername = "";
   $dbPassword = "";
   $dbname = "";
 
+  //Get Request Data
   $reqData = getRequestInfo();
-  $login = $reqData["email"];
+  $firstName = $reqData['firstName'];
+  $lastName = $reqData['lastName'];
+  $email = $reqData["email"];
   $password = $reqData["password"];
 
   $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname)
   if($conn->connect_error){
     returnError($conn->connect_error);
   }else{
-    //  Create Prepared Statement and Execute
-    $stmt = $con->prepare("SELECT ID, firstName, lastName FROM Users WHERE email=? AND Password=?");
-    $stmt->bind_param("ss", $login, $password);
-    $stmt->execute();
+    $stmt = $conn->prepare("INSERT INTO Users (firstName, lastName, email, password) VALUES (?,?,?,?)");
+    $stmt->bind_param("s,s,s,s", $firstName, $lastName, $email, $password);
+    $execResult = $stmt->execute();
 
-    $result = $stmt->get_result();
-
-    if($row = $result->fetch_assoc()){
-      returnInfo($row["firstName"], $row['lastName'], $row['ID']);
-    }else{
-      returnError("User not found.");
+    if( false===$execResult ){
+      returnError( $stmt->error );
     }
 
     $stmt->close();
@@ -38,11 +36,6 @@
   function sendResponse ( $response ){
     header('Content-type: application/json');
     echo $response;
-  }
-
-  function returnInfo( $firstName, $lastName, $id ){
-    $returnValue = '{"id":' . $id . ',"firstName":' . $firstName . ',"lastName":' . $lastName . '}';
-    sendResponse($returnValue);
   }
 
   function returnError ( $err ){
