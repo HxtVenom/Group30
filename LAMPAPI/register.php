@@ -8,7 +8,7 @@
   $email = $reqData["email"];
   $password = $reqData["password"];
 
-  $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname)
+  $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname);
   if($conn->connect_error){
     returnError($conn->connect_error);
   }else{
@@ -22,6 +22,8 @@
 
     $stmt->close();
     $conn->close();
+
+    http_response_code(200);
   }
 
   function returnError ( $err ){
