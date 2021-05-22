@@ -1,10 +1,5 @@
 <?php
-
-  //Setup Connection Info
-  $server = "";
-  $dbUsername = "";
-  $dbPassword = "";
-  $dbname = "";
+  require ('./lib/db.php');
 
   $reqData = getRequestInfo();
   $login = $reqData["email"];
@@ -15,14 +10,14 @@
     returnError($conn->connect_error);
   }else{
     //  Create Prepared Statement and Execute
-    $stmt = $con->prepare("SELECT ID, firstName, lastName FROM Users WHERE email=? AND Password=?");
+    $stmt = $con->prepare("SELECT u_id, fname, lname FROM Users WHERE email=? AND password=?");
     $stmt->bind_param("ss", $login, $password);
     $stmt->execute();
 
     $result = $stmt->get_result();
 
     if($row = $result->fetch_assoc()){
-      returnInfo($row["firstName"], $row['lastName'], $row['ID']);
+      returnInfo($row["fname"], $row['lname'], $row['u_id']);
     }else{
       returnError("User not found.");
     }
@@ -41,7 +36,7 @@
   }
 
   function returnInfo( $firstName, $lastName, $id ){
-    $returnValue = '{"id":' . $id . ',"firstName":' . $firstName . ',"lastName":' . $lastName . '}';
+    $returnValue = '{"u_id":' . $id . ',"fname":' . $firstName . ',"lname":' . $lastName . '}';
     sendResponse($returnValue);
   }
 

@@ -1,15 +1,10 @@
 <?php 
-  
-  //Setup Connection Info
-  $server = "";
-  $dbUsername = "";
-  $dbPassword = "";
-  $dbname = "";
+  require ('./lib/db.php');
 
   //Get Request Data
   $reqData = getRequestInfo();
-  $firstName = $reqData['firstName'];
-  $lastName = $reqData['lastName'];
+  $firstName = $reqData['fname'];
+  $lastName = $reqData['lname'];
   $email = $reqData["email"];
   $password = $reqData["password"];
 
@@ -17,7 +12,7 @@
   if($conn->connect_error){
     returnError($conn->connect_error);
   }else{
-    $stmt = $conn->prepare("INSERT INTO Users (firstName, lastName, email, password) VALUES (?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO Users (fname, lname, email, password) VALUES (?,?,?,?)");
     $stmt->bind_param("s,s,s,s", $firstName, $lastName, $email, $password);
     $execResult = $stmt->execute();
 
@@ -27,15 +22,6 @@
 
     $stmt->close();
     $conn->close();
-  }
-
-  function getRequestInfo (){
-    return json_decode(file_get_contents('php://input'), true);
-  }
-
-  function sendResponse ( $response ){
-    header('Content-type: application/json');
-    echo $response;
   }
 
   function returnError ( $err ){
