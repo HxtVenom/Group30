@@ -10,7 +10,7 @@
     returnError($conn->connect_error);
   }else{
     //  Create Prepared Statement and Execute
-    $stmt = $con->prepare("SELECT u_id, fname, lname FROM Users WHERE email=? AND password=?");
+    $stmt = $conn->prepare("SELECT u_id, fname, lname FROM Users WHERE email=? AND password=?");
     $stmt->bind_param("ss", $login, $password);
     $stmt->execute();
 
@@ -36,7 +36,11 @@
   }
 
   function returnInfo( $firstName, $lastName, $id ){
-    $returnValue = '{"u_id":' . $id . ',"fname":' . $firstName . ',"lname":' . $lastName . '}';
+    $returnValue = '{
+                      "u_id":' . $id . ',
+                      "fname":' . $firstName . ',
+                      "lname":' . $lastName . '
+                    }';
     sendResponse($returnValue);
   }
 
