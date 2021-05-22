@@ -38,8 +38,8 @@
   function returnInfo( $firstName, $lastName, $id ){
     $returnValue = '{
                       "u_id":' . $id . ',
-                      "fname":' . $firstName . ',
-                      "lname":' . $lastName . '
+                      "fname":"' . $firstName . '",
+                      "lname":"' . $lastName . '"
                     }';
     sendResponse($returnValue);
   }
