@@ -5,8 +5,8 @@
   $login = $reqData["email"];
   $password = $reqData["password"];
 
-  $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname)
-  if($conn->connect_error){
+  $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname);
+  if( $conn->connect_error ){
     returnError($conn->connect_error);
   }else{
     //  Create Prepared Statement and Execute
@@ -16,8 +16,8 @@
 
     $result = $stmt->get_result();
 
-    if($row = $result->fetch_assoc()){
-      returnInfo($row["fname"], $row['lname'], $row['u_id']);
+    if( $row = $result->fetch_assoc() ){
+      returnInfo( $row["fname"], $row['lname'], $row['u_id'] );
     }else{
       returnError("User not found.");
     }
