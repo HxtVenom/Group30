@@ -21,7 +21,7 @@ function doRegister()
     }
     */
 
-    var jsonPayload = '{"firstName" : "' + firstName + '", lastName" : "' + lastName + '", email" : "' + email + '", password" : "' + password + '"}'; // hash?
+    var jsonPayload = '{"fname" : "' + firstName + '", lname" : "' + lastName + '", email" : "' + email + '", password" : "' + password + '"}'; // hash?
     var url = urlBase + '/register.' + extension; 
 
     var xhr = new XMLHttpRequest();
