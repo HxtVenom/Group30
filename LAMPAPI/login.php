@@ -1,5 +1,6 @@
 <?php
   require ('./lib/db.php');
+  require ('./lib/helper.php');
 
   $reqData = getRequestInfo();
   $login = $reqData["email"];
@@ -26,26 +27,12 @@
     $conn->close();
   }
 
-  function getRequestInfo (){
-    return json_decode(file_get_contents('php://input'), true);
-  }
-
-  function sendResponse ( $response ){
-    header('Content-type: application/json');
-    echo $response;
-  }
-
   function returnInfo( $firstName, $lastName, $id ){
     $returnValue = '{
                       "u_id":' . $id . ',
                       "fname":"' . $firstName . '",
                       "lname":"' . $lastName . '"
                     }';
-    sendResponse($returnValue);
-  }
-
-  function returnError ( $err ){
-    $returnValue = '{"error":' . $err . "}";
     sendResponse($returnValue);
   }
 ?>

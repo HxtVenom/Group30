@@ -1,5 +1,6 @@
 <?php
   require ('./lib/db.php');
+  require ('./lib/helper.php');
 
   //Get Request Data
   $reqData = getRequestInfo();
@@ -43,22 +44,8 @@
     $conn->close();
   }
 
-    function getRequestInfo (){
-      return json_decode(file_get_contents('php://input'), true);
-    }
-
-    function sendResponse ( $response ){
-      header('Content-type: application/json');
-      echo $response;
-    }
-
     function returnInfo( $searchResult ){
       $finalRes = '{"results":[' . $searchResult . ']}';
       sendResponse($finalRes);
-    }
-
-    function returnError ( $err ){
-      $returnValue = '{"error":"' . $err . '"}';
-      sendResponse($returnValue);
     }
 ?>
