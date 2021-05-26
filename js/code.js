@@ -15,11 +15,21 @@ function doRegister()
     var firstName = document.getElementById("registerFirstName").value;
     var lastName = document.getElementById("registerLastName").value;
 
-    /*
-    if(!isNaN(firstName) || !isNaN(lastName)){
+    
+    if(!isNaN(firstName) || !isNaN(lastName) || firstName.length == 0 || lastName.length == 0){
         document.getElementById("errorName").innerHTML = "<b style='color:red'>Please enter a valid name!</b>";
+        return;
     }
-    */
+    
+    if(email.length == 0){
+        document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter an email!</b>";
+        return;
+    }
+
+    if(password.length == 0){
+        document.getElementById("errorPassword").innerHTML = "<b style='color:red'>Please enter a password!</b>";
+        return;
+    }
 
     var jsonPayload = '{"fname" : "' + firstName + '", lname" : "' + lastName + '", email" : "' + email + '", password" : "' + password + '"}'; // hash?
     var url = urlBase + '/register.' + extension; 
