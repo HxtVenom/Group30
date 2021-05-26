@@ -45,7 +45,7 @@
   }
 
   function returnError ( $err ){
-    $returnValue = '{"error":' . $err . "}";
+    $returnValue = '{"error":"' . $err . '"}';
     sendResponse($returnValue);
   }
 ?>
