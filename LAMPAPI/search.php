@@ -14,9 +14,9 @@
   if($conn->connect_error){
     returnError($conn->connect_error);
   }else{
-    $stmt = $conn->prepare("SELECT * FROM Contacts WHERE u_id=?
-      AND fname LIKE '%?%' OR lname LIKE '%?%'
-      OR phone LIKE '%?%' OR address LIKE '%?%'");
+    $stmt = $conn->prepare('SELECT * FROM Contacts WHERE u_id=?
+      AND fname LIKE "%?%" OR lname LIKE "%?%""
+      OR phone LIKE "%?%" OR address LIKE "%?%"');
     $stmt->bind_param("issss", $u_id, $search, $search, $search, $search);
     $execResult = $stmt->execute();
 
