@@ -1,7 +1,7 @@
 <?php
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
-  
+
   require ('./lib/db.php');
 
   //Get Request Data
@@ -15,8 +15,8 @@
     returnError($conn->connect_error);
   }else{
     $stmt = $conn->prepare("SELECT * FROM Contacts WHERE u_id=?
-      AND fname LIKE %?% OR lname LIKE %?%
-      OR phone LIKE %?% OR address LIKE %?%");
+      AND fname LIKE '%?%' OR lname LIKE '%?%'
+      OR phone LIKE '%?%' OR address LIKE '%?%'");
     $stmt->bind_param("issss", $u_id, $search, $search, $search, $search);
     $execResult = $stmt->execute();
 
