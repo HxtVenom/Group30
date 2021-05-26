@@ -7,4 +7,9 @@
       header('Content-type: application/json');
       echo $response;
     }
+
+    function returnError ( $err ){
+      $returnValue = '{"error":"' . $err . '"}';
+      sendResponse($returnValue);
+    }
 ?>
