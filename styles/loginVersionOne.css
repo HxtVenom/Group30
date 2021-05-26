@@ -1,0 +1,61 @@
+@keyframes fadeIn{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+* {
+	font-family: sans-serif;
+}
+
+p, h1 {
+	text-align: center;	
+}
+
+h1 {
+	font-variant: small-caps;
+	font-size: 4vw;
+}
+
+button {
+	border: none;
+	background-color: #f0f7d4;
+	font-size: 1.75vw;
+}
+
+button:hover {
+	background-color: #66B032;
+	color: #f0f7d4;
+	cursor: pointer;
+}
+
+input {
+	background-color: #f0f7d4;
+	border: none;
+	font-size: 1.75vw;
+}
+
+.box {
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	border-style: solid;
+	border-color: #628b48;
+	box-shadow: 0px 3px 10px;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Responsive Web Design Stuff*/
+.row {
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
