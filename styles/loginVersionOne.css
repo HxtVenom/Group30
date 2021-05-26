@@ -4,11 +4,15 @@
 }
 
 * {
-	font-family: sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+html{
+	background: linear-gradient(135deg, black 30%, white 50%, black 70%);
 }
 
 p, h1 {
-	text-align: center;	
+	text-align: center;
 }
 
 h1 {
@@ -18,32 +22,37 @@ h1 {
 
 button {
 	border: none;
-	background-color: #f0f7d4;
+	background-color: lightgrey;
 	font-size: 1.75vw;
+	border: solid 2px rgba(0,0,0,0.5);
+
 }
 
 button:hover {
-	background-color: #66B032;
-	color: #f0f7d4;
+	background-color: gray;
+	border: solid 2px black;
 	cursor: pointer;
 }
 
 input {
-	background-color: #f0f7d4;
-	border: none;
+	background-color: lightgrey;
+	border: solid 2px rgba(0,0,0,0.5);
 	font-size: 1.75vw;
 }
+
 
 .box {
 	animation-name: fadeIn;
 	animation-duration: 2s;
 	border-style: solid;
-	border-color: #628b48;
+	border-color: white;
+	background-color: #B79A62;
 	box-shadow: 0px 3px 10px;
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 }
+
 
 /*Responsive Web Design Stuff*/
 .row {
@@ -59,3 +68,11 @@ input {
 	clear: both;
 	display: table;
 }
+
+img {
+	height: auto;
+	border-radius: 25%;
+	display: block;
+	margin-left: 35%;
+	margin-right: 50%;
+  }
