@@ -1,4 +1,4 @@
-var urlBase = 'http://167.71.245.176/LAMPAPI';
+var urlBase = 'http://www.167.71.245.176/LAMPAPI';
 var extension = 'php';
 
 
@@ -46,7 +46,7 @@ function doRegister()
 			{
 				document.getElementById("registrationResult").innerHTML = "New Account Successfully Created. Navigating back to log in";		
 
-				setTimeout(function(){window.location.href = "http://167.71.245.176/index.html";},3000)
+				setTimeout(function(){window.location.href = "http://www.167.71.245.176/index.html";},3000)
 			}
 		};
 		xhr.send(jsonPayload);
