@@ -1,4 +1,5 @@
 var urlBase = 'http://167.71.245.176/LAMPAPI';
+
 var extension = 'php';
 
 
@@ -9,12 +10,14 @@ function doRegister()
     lastName = "";
     email = "";
     password = "";
+	reenterPassword = "";
 
     var email = document.getElementById("registerEmail").value;
     var password = document.getElementById("registerPassword").value;
     var hash = md5(password);
     var firstName = document.getElementById("registerFirstName").value;
     var lastName = document.getElementById("registerLastName").value;
+	var reenterPassword = document.getElementById("reenterPassword").value;
 
     
     if(!isNaN(firstName) || !isNaN(lastName) || firstName.length == 0 || lastName.length == 0){
@@ -31,6 +34,11 @@ function doRegister()
         document.getElementById("errorPassword").innerHTML = "<b style='color:red'>Please enter a password!</b>";
         return;
     }
+
+	if(password != reenterPassword || reenterPassword.length == 0){
+		document.getElementById("errorReenterPassword").innerHTML = "<b style='color:red'>The passwords do not match!</b>";
+        return;
+	}
 
     var jsonPayload = '{"fname" : "' + firstName + '", lname" : "' + lastName + '", email" : "' + email + '", password" : "' + hash + '"}';
     var url = urlBase + '/register.' + extension; 
