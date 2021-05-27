@@ -18,6 +18,7 @@
     $execResult = $stmt->execute();
 
     if( false===$execResult ){
+      http_response_code(409);
       returnError( $stmt->error );
     }
 
