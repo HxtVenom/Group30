@@ -25,5 +25,6 @@
     $conn->close();
 
     http_response_code(200);
+    returnSuccess("User successfully created!");
   }
 ?>
