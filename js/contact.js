@@ -2,7 +2,7 @@ var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
 
 function addContact() {
-  var u_id = -1;
+  var u_id = 0; // ADD FUNCTIONALITY TO PULL u_id from cookie
   var fname = "";
   var lname = "";
   var phone = "";
@@ -13,7 +13,7 @@ function addContact() {
   phone = document.getElementById("phone").value;
   address = document.getElementById("address").value;
 
-  var jsonPayload = JSON.stringify({fname, lname, phone, address});
+  var jsonPayload = JSON.stringify({fname, lname, phone, address, u_id});
   var url = urlBase + '/addContact.' + extension; 
 
   var xhr = new XMLHttpRequest
@@ -58,13 +58,15 @@ function doSearch() {
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				var response = JSON.parse(this.response);
-        response.array.forEach(element => {
-          console.log(element);
+        var display = "";
+        response.results.forEach(element => {
+          display += `<div class="row">${element.fname} ${element.lname}</div>`
         });
+        document.getElementById("list").innerHTML = display;
 			}
       else if(this.readyState == 4 && this.status == 404)
       {
-        document.getElementById("contactResult").innerHTML = "No contacts found.";
+        document.getElementById("searchResult").innerHTML = "<h1>No contacts found.</h1>";
       }
 		};
 		xhr.send(jsonPayload);

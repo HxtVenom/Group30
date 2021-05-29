@@ -35,6 +35,7 @@
     }
 
     if($searchCount == 0){
+      http_response_code(404);
       returnError("No Results Found");
     }else{
       returnInfo($searchResult);
