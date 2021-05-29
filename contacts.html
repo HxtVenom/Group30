@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Registration Page-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/loginVersionOne.css"/>
+	<title>Contacts</title>
+</head>
+<body>
+	<div class="row">
+		<h1>Contacts</h1>
+	</div>
+
+	<div class="row">
+		<input style="margin-right: 5px" type="text" id ="searchValue" placeholder="Search..." required>
+		<span id="errorSearch"></span>
+	</div>
+
+	<div class="row">	
+		<button type="button" id="searchButton" onclick="doSearch()">Search</button>
+		<button type="button" id="logoutButton" onclick="window.location.href='https://contacts.rruiz.dev/index.html';">Log out</button>
+		<span id="searchResult"></span>
+		<p id="list"></p>
+		<br /><br />
+	</div>
+</body>
+</html>
