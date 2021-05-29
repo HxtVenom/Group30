@@ -40,7 +40,7 @@ function doRegister()
         return;
 	}
 
-    var jsonPayload = '{"fname" : "' + firstName + '", lname" : "' + lastName + '", email" : "' + email + '", password" : "' + hash + '"}';
+    var jsonPayload = JSON.stringify({fname: firstName, lname: lastName, email: email, password: hash}); 
     var url = urlBase + '/register.' + extension; 
 
     var xhr = new XMLHttpRequest();
