@@ -2,6 +2,7 @@ var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
 
 function addContact() {
+  var u_id = -1;
   var fname = "";
   var lname = "";
   var phone = "";
@@ -39,7 +40,7 @@ function addContact() {
   }
 }
 
-function search() {
+function doSearch() {
   var search = "";
 
   search = document.getElementById("searchValue").value;
