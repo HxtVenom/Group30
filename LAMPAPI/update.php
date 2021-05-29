@@ -14,7 +14,7 @@
   }
 
   //  lookup
-  $c_id = $reqData["c_id"]; //  front-end needs to implement
+  $c_id = $reqData["c_id"];
   $u_id = $reqData["u_id"];
   $fname = $reqData["fname"];
   $lname = $reqData["lname"];
