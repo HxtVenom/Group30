@@ -52,6 +52,7 @@
     $stmt = $conn->prepare("UPDATE Contacts (fname, lname, phone, address, lastModified) SET (?,?,?,?,NOW()) WHERE c_id=?");
     $stmt->bind_param("ssssi", $fname, $lname, $phone, $address, $c_id);
     $execResult = $stmt->execute();
+    
 
     if( false===$execResult ){
       http_response_code(400);
