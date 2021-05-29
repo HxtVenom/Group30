@@ -14,7 +14,7 @@ html{
 	min-height: 100vh;
 }
 
-p, h1 {
+p, h1, h2 {
 	text-align: center;
 }
 
@@ -98,7 +98,7 @@ input {
 	}
 	
 	p {
-	font-size: 5vw;
+		font-size: 5vw;
 	}
 
 	h1 {
@@ -106,10 +106,11 @@ input {
 	}
 
 	button {
-	font-size: 5vw;
-	width: 40%;
-	margin-left: 5px;
-	margin-right: 5px;
+		font-size: 4.25vw;
+		width: 50%;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align: center;
 	}
 
 	input {
