@@ -1,3 +1,5 @@
+/*These are constants that are true no matter the screen size*/
+
 @keyframes fadeIn{
 	from {opacity: 0;}
 	to {opacity: 1;}
@@ -8,12 +10,16 @@
 }
 
 html{
-	background: linear-gradient(135deg, black 30%, white 50%, black 70%) no-repeat;
+	background: linear-gradient(155deg, #ffc904 30%, lightgrey 50%, #ffc904 70%) no-repeat;
 	min-height: 100vh;
 }
 
 p, h1 {
 	text-align: center;
+}
+
+p {
+	font-size: 1.75vw;
 }
 
 h1 {
@@ -26,7 +32,10 @@ button {
 	background-color: lightgrey;
 	font-size: 1.75vw;
 	border: solid 2px rgba(0,0,0,0.5);
-
+	width: 20%;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 button:hover {
@@ -39,6 +48,8 @@ input {
 	background-color: lightgrey;
 	border: solid 2px rgba(0,0,0,0.5);
 	font-size: 1.75vw;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 
@@ -47,13 +58,13 @@ input {
 	animation-duration: 2s;
 	border-style: solid;
 	border-color: white;
-	background-color: white;
+	background-color: rgb(240, 240, 240);
 	box-shadow: 0px 3px 10px;
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
+	border: solid 2px rgba(0,0,0,1);
 }
-
 
 /*Responsive Web Design Stuff*/
 .row {
@@ -70,10 +81,39 @@ input {
 	display: table;
 }
 
-img {
-	height: auto;
-	border-radius: 25%;
-	display: block;
-	margin-left: 35%;
-	margin-right: 50%;
-  }
+
+@media only screen and (max-width: 600px)
+{
+	.box {
+		animation-name: fadeIn;
+		animation-duration: 2s;
+		border-style: solid;
+		border-color: white;
+		background-color: rgb(240, 240, 240);
+		box-shadow: 0px 3px 10px;
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
+		border: solid 2px rgba(0,0,0,1);
+	}
+	
+	p {
+	font-size: 5vw;
+	}
+
+	h1 {
+		font-size: 7vw;
+	}
+
+	button {
+	font-size: 5vw;
+	width: 40%;
+	margin-left: 5px;
+	margin-right: 5px;
+	}
+
+	input {
+		font-size: 5vw;
+	}
+
+}
