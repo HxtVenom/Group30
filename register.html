@@ -5,35 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 	<script type="text/javascript" src="js/code.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles/globals.css"/>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/loginVersionOne.css"/>
 	<title>Register</title>
 </head>
 <body>
-	<div class="row">
-		<h1>Create New Account</h1>
-	</div>
+	<div class="box">
+		<div class="row">
+			<h1>Create New Account</h1>
+		</div>
 
-	<div class="row">
-		<input style="margin-right: 5px" type="text" id ="registerFirstName" placeholder="First Name" required>
-		<input style="margin-left: 5px" type="text" id="registerLastName" placeholder="Last Name" required>
-		<span id="errorName"></span>
-	</div>
+		<div class="row">
+			<input style="margin-right: 5px" type="text" id ="registerFirstName" placeholder="First Name" required>
+			<input style="margin-left: 5px" type="text" id="registerLastName" placeholder="Last Name" required>
+			<span id="errorName"></span>
+		</div>
 
-    <div class="row">
-		<input style="margin-right: 5px" type="text" id ="registerEmail" placeholder="Email" required>
-		<span id="errorEmail"></span>
-	</div>
+		<div class="row">
+			<input style="margin-right: 5px" type="text" id ="registerEmail" placeholder="Email" required>
+			<span id="errorEmail"></span>
+		</div>
 
-    <div class="row">
-		<input style="margin-right: 5px" type="password" id ="registerPassword" placeholder="Password" required>
-		<span id="errorPassword"></span>
-	</div>
+		<div class="row">
+			<input style="margin-right: 5px" type="password" id ="registerPassword" placeholder="Password" required>
+			<span id="errorPassword"></span>
+		</div>
 
-	<div class="row">
-		<button type="button" id="registerButton" onclick="doRegister()">Complete Registration</button>
-		<span id="registrationResult"></span>
-		<h2>Already have an account?</h2>
-		<button style="margin-left: 5px" type="button" id="returnToIndex" onclick="window.location.href='http://167.71.245.176/index.html';"> Log In</button>
+		<div class="row">
+			<input style="margin-right: 5px" type="password" id ="reenterPassword" placeholder="Re-enter Password" required>
+			<span id="errorReenterPassword"></span>
+		</div>
+
+		<div class="row">
+			<button style="width: 40%" type="button" id="registerButton" onclick="doRegister()">Complete Registration</button>
+		</div>
+		
+		<div class="row">
+			<span id="registrationResult"></span>
+			<h2>Already have an account?</h2>
+			<button style="margin-left: 5px" type="button" id="returnToIndex" onclick="window.location.href='https://contacts.rruiz.dev/index.html';"> Log In</button>
+		</div>
 	</div>
 </body>
 </html>

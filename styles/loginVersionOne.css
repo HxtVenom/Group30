@@ -1,14 +1,25 @@
+/*These are constants that are true no matter the screen size*/
+
 @keyframes fadeIn{
 	from {opacity: 0;}
 	to {opacity: 1;}
 }
 
 * {
-	font-family: sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-p, h1 {
-	text-align: center;	
+html{
+	background: linear-gradient(155deg, #ffc904 30%, lightgrey 50%, #ffc904 70%) no-repeat;
+	min-height: 100vh;
+}
+
+p, h1, h2 {
+	text-align: center;
+}
+
+p {
+	font-size: 1.75vw;
 }
 
 h1 {
@@ -18,31 +29,41 @@ h1 {
 
 button {
 	border: none;
-	background-color: #f0f7d4;
+	background-color: lightgrey;
 	font-size: 1.75vw;
+	border: solid 2px rgba(0,0,0,0.5);
+	width: 20%;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 button:hover {
-	background-color: #66B032;
-	color: #f0f7d4;
+	background-color: gray;
+	border: solid 2px black;
 	cursor: pointer;
 }
 
 input {
-	background-color: #f0f7d4;
-	border: none;
+	background-color: lightgrey;
+	border: solid 2px rgba(0,0,0,0.5);
 	font-size: 1.75vw;
+	margin-left: 5px;
+	margin-right: 5px;
 }
+
 
 .box {
 	animation-name: fadeIn;
 	animation-duration: 2s;
 	border-style: solid;
-	border-color: #628b48;
+	border-color: white;
+	background-color: rgb(240, 240, 240);
 	box-shadow: 0px 3px 10px;
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
+	border: solid 2px rgba(0,0,0,1);
 }
 
 /*Responsive Web Design Stuff*/
@@ -58,4 +79,42 @@ input {
 	content: "";
 	clear: both;
 	display: table;
+}
+
+
+@media only screen and (max-width: 600px)
+{
+	.box {
+		animation-name: fadeIn;
+		animation-duration: 2s;
+		border-style: solid;
+		border-color: white;
+		background-color: rgb(240, 240, 240);
+		box-shadow: 0px 3px 10px;
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
+		border: solid 2px rgba(0,0,0,1);
+	}
+	
+	p {
+		font-size: 5vw;
+	}
+
+	h1 {
+		font-size: 7vw;
+	}
+
+	button {
+		font-size: 4.25vw;
+		width: 50%;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align: center;
+	}
+
+	input {
+		font-size: 5vw;
+	}
+
 }
