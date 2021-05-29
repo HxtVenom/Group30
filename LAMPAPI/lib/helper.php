@@ -12,4 +12,9 @@
       $returnValue = '{"error":"' . $err . '"}';
       sendResponse($returnValue);
     }
+    
+    function returnSuccess ( $msg ){
+      $returnValue = '{"success":"' . $msg . '"}';
+      sendResponse($returnValue);
+    }
 ?>

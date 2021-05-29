@@ -20,6 +20,7 @@
     if( $row = $result->fetch_assoc() ){
       returnInfo( $row["fname"], $row['lname'], $row['u_id'] );
     }else{
+      http_response_code(404);
       returnError("User not found.");
     }
 
