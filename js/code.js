@@ -47,7 +47,7 @@ function doRegister()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("registrationResult").innerHTML = "New Account Successfully Created. Navigating back to log in";		
+				document.getElementById("registrationResult").innerHTML = "<b>New Account Successfully Created. Navigating back to log in<b>";		
 
 				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/index.html";},3000)
 			}
