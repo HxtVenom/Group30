@@ -4,8 +4,8 @@ var extension = 'php';
 
 function doLogin()
 {
-	username = document.getElementById("loginName");
-	password = document.getElementById("loginPassword");
+	username = document.getElementById("loginName").value;
+	password = document.getElementById("loginPassword").value;
 	
 	var jsonPayload = JSON.stringify({email: loginName, password: loginPassword});
 	var url = urlBase + '/login.' + extension;
