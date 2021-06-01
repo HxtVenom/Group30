@@ -22,11 +22,15 @@ function doLogin()
 			{
 				document.getElementById("loginText").innerHTML = "Logging In!";
 			}
+			else if(this.readyState == 4 && this.status == 404)
+			{
+				document.getElementById("loginText").innerHTML = "Incorrect Login Info!";
+			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("loginText").innerHTML = "NO";
+		document.getElementById("loginText").innerHTML = err.message;
 	}
 }
