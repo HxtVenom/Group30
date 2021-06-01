@@ -15,51 +15,13 @@ function doRegister()
     var firstName = document.getElementById("registerFirstName").value;
     var lastName = document.getElementById("registerLastName").value;
 
+    /*
     if(!isNaN(firstName) || !isNaN(lastName)){
         document.getElementById("errorName").innerHTML = "<b style='color:red'>Please enter a valid name!</b>";
     }
+    */
 
     var jsonPayload = '{"firstName" : "' + firstName + '", lastName" : "' + lastName + '", email" : "' + email + '", password" : "' + password + '"}'; // hash?
-        return;
-    }
-	else {
-		/*Removes the error text when the error has been fixed by the user*/
-		document.getElementById("errorName").innerHTML = "";
-	}
-    
-    if(email.length == 0){
-        document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter an email!</b>";
-        return;
-    }
-	else {
-		document.getElementById("errorEmail").innerHTML = "";
-	}
-	
-	if(email.match("@") == null)
-	{
-		document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Email is invalid!</b>";
-	}
-	else {
-		document.getElementById("errorEmail").innerHTML = "";
-	}
-	
-    if(password.length == 0){
-        document.getElementById("errorPassword").innerHTML = "<b style='color:red'>Please enter a password!</b>";
-        return;
-    }
-	else {
-		document.getElementById("errorPassword").innerHTML = "";
-	}
-
-	if(password != reenterPassword || reenterPassword.length == 0){
-		document.getElementById("errorReenterPassword").innerHTML = "<b style='color:red'>The passwords do not match!</b>";
-        return;
-	}
-	else {
-		document.getElementById("errorReenterPassword").innerHTML = "";
-	}
-
-    var jsonPayload = '{"fname" : "' + firstName + '", lname" : "' + lastName + '", email" : "' + email + '", password" : "' + hash + '"}';
     var url = urlBase + '/register.' + extension; 
 
     var xhr = new XMLHttpRequest();
