@@ -7,7 +7,8 @@ function doLogin()
 	username = document.getElementById("loginName").value;
 	password = document.getElementById("loginPassword").value;
 	
-	var jsonPayload = JSON.stringify({email: loginName, password: loginPassword});
+	var jsonPayload = JSON.stringify({email: username, password: password});
+	document.getElementById("loginText").innerHTML = jsonPayload;
 	var url = urlBase + '/login.' + extension;
 	
 	var xhr = new XMLHttpRequest();
