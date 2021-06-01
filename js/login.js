@@ -21,6 +21,7 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("loginText").innerHTML = "Logging In!";
+				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},3000)
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
