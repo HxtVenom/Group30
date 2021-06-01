@@ -5,33 +5,49 @@ var extension = 'php';
 
 function doRegister()
 {
-
-  var email = document.getElementById("registerEmail").value;
-  var password = document.getElementById("registerPassword").value;
-  var hash = md5(password);
-  var firstName = document.getElementById("registerFirstName").value;
-  var lastName = document.getElementById("registerLastName").value;
+	var email = document.getElementById("registerEmail").value;
+	var password = document.getElementById("registerPassword").value;
+	var hash = md5(password);
+	var firstName = document.getElementById("registerFirstName").value;
+	var lastName = document.getElementById("registerLastName").value;
 	var reenterPassword = document.getElementById("reenterPassword").value;
 
     
-  if(!isNaN(firstName) || !isNaN(lastName) || firstName.length == 0 || lastName.length == 0){
-      document.getElementById("errorName").innerHTML = "<b style='color:red'>Please enter a valid name!</b>";
-      return;
-  }
-  
-  if(email.length == 0){
-      document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter an email!</b>";
-      return;
-  }
+	if(!isNaN(firstName) || !isNaN(lastName) || firstName.length == 0 || lastName.length == 0){
+		document.getElementById("errorName").innerHTML = "<b style='color:red'>Please enter a valid name!</b>";
+		return;
+	}
+	else
+	{
+		//removes the error
+		document.getElementById("errorName").innerHTML = "";
+	}
+	  
+	if(email.length == 0){
+		document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter an email!</b>";
+		return;
+	}
+	else
+	{
+		document.getElementById("errorEmail").innerHTML = "";
+	}
 
-  if(password.length == 0){
-      document.getElementById("errorPassword").innerHTML = "<b style='color:red'>Please enter a password!</b>";
-      return;
-  }
+	if(password.length == 0){
+		document.getElementById("errorPassword").innerHTML = "<b style='color:red'>Please enter a password!</b>";
+		return;
+	}
+	else
+	{
+		document.getElementById("errorPassword").innerHTML = "";
+	}
 
 	if(password != reenterPassword || reenterPassword.length == 0){
 		document.getElementById("errorReenterPassword").innerHTML = "<b style='color:red'>The passwords do not match!</b>";
         return;
+	}
+	else
+	{
+	  document.getElementById("errorReenterPassword").innerHTML = "";
 	}
 
   var jsonPayload = JSON.stringify({fname: firstName, lname: lastName, email: email, password: hash}); 
