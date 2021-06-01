@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<!--Entrance page to the website-->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="styles/loginVersionOne.css"/>
-		<script type="text/javascript" src="js/login.js"></script>
-		<script type="text/javascript" src="js/code.js"></script>
-		
+		<script src="js/login.js"></script>
+		<script src="js/code.js"></script>
+
 		<title>Login</title>
 	</head>
 	<body>
@@ -15,13 +16,13 @@
 			<div class="row">
 				<h1>Welcome</h1>
 			</div>
-			
+
 			<div class="row">
 				<input type="text" id ="loginName" placeholder="Username">
 				<input type="password" id="loginPassword" placeholder="Password">
 				<p id="loginText"></p>
 			</div>
-			
+
 			<!--Makes it so that hitting "enter" when the cursor is inside the password input section, the login button is pressed-->
 			<script>
 			document.getElementById("loginPassword").addEventListener("keyup", function(event) {
@@ -32,7 +33,7 @@
 				}
 			);
 			</script>
-			
+
 			<div class="row">
 				<button type="button" id="loginButton" onclick="doLogin()">Log In</button>
 				<button type="button" id="registerButton" onclick="window.location.href='https://contacts.rruiz.dev/register.html';"> Register</button>
