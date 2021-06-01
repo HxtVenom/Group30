@@ -6,6 +6,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles/loginVersionOne.css"/>
 		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/code.js"></script>
 		
 		<title>Login</title>
 	</head>
@@ -20,6 +21,17 @@
 				<input type="password" id="loginPassword" placeholder="Password">
 				<p id="loginText"></p>
 			</div>
+			
+			<!--Makes it so that hitting "enter" when the cursor is inside the password input section, the login button is pressed-->
+			<script>
+			document.getElementById("loginPassword").addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					document.getElementById("loginButton").click();
+					}
+				}
+			);
+			</script>
 			
 			<div class="row">
 				<button type="button" id="loginButton" onclick="doLogin()">Log In</button>

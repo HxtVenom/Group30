@@ -2,7 +2,6 @@ var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 
 var extension = 'php';
 
-
 function doRegister()
 {
 	var email = document.getElementById("registerEmail").value;
