@@ -6,8 +6,9 @@ function doLogin()
 {
 	var username = document.getElementById("loginName").value;
 	var password = document.getElementById("loginPassword").value;
+	var hash = md5(password);
 	
-	var jsonPayload = JSON.stringify({email: username, password: password});
+	var jsonPayload = JSON.stringify({email: username, password: hash});
 	var url = urlBase + '/login.' + extension;
 	
 	var xhr = new XMLHttpRequest();
