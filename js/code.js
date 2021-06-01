@@ -51,6 +51,13 @@ function doRegister()
 
 				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/index.html";},3000)
 			}
+      else if(this.readyState == 4 && this.status == 409)
+      {
+        document.getElementById("registerationResult").innerHTML = "User already exists!";
+      }
+      else{
+        document.getElementById("registerationResult").innerHTML = "";
+      }
 		};
 		xhr.send(jsonPayload);
 	}
