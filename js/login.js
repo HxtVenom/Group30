@@ -8,7 +8,6 @@ function doLogin()
 	password = document.getElementById("loginPassword").value;
 	
 	var jsonPayload = JSON.stringify({email: username, password: password});
-	document.getElementById("loginText").innerHTML = jsonPayload;
 	var url = urlBase + '/login.' + extension;
 	
 	var xhr = new XMLHttpRequest();
@@ -21,7 +20,7 @@ function doLogin()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.geElementById("loginText").innerHTML = "Logging In!";
+				document.getElementById("loginText").innerHTML = "Logging In!";
 			}
 		};
 		xhr.send(jsonPayload);
