@@ -1,4 +1,4 @@
-var urlBase = 'http://167.71.245.176/LAMPAPI';
+var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 
 var extension = 'php';
 
