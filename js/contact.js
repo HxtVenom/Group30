@@ -1,8 +1,24 @@
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
 
+function getUID() {
+	var u_id = "u_id=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookies.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while( c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
 function addContact() {
-  var u_id = 0; // ADD FUNCTIONALITY TO PULL u_id from cookie
+  var u_id = getUID(); // ADD FUNCTIONALITY TO PULL u_id from cookie
   var fname = "";
   var lname = "";
   var phone = "";

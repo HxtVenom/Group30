@@ -23,6 +23,8 @@ function doLogin()
 			{
 				document.getElementById("loginText").innerHTML = "Logging In!";
 				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},3000)
+				var response = JSON.parse(this.response);
+				document.cookie = "u_id="+response.u_id+";";
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
