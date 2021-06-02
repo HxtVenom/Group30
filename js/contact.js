@@ -1,10 +1,11 @@
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
+var u_id = getUID();
 
 function getUID() {
 	var u_id = "u_id=";
 	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookies.split(';');
+	var ca = decodedCookie.split(';');
 	for (var i = 0; i < ca.length; i++) {
 		var c = ca[i];
 		while( c.charAt(0) == ' ') {
@@ -18,7 +19,7 @@ function getUID() {
 }
 
 function addContact() {
-  var u_id = getUID(); // ADD FUNCTIONALITY TO PULL u_id from cookie
+  //var u_id = getUID(); // ADD FUNCTIONALITY TO PULL u_id from cookie
   var fname = "";
   var lname = "";
   var phone = "";
