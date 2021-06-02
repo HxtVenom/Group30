@@ -11,8 +11,8 @@ function getUID() {
 		while( c.charAt(0) == ' ') {
 			c = c.substring(1);
 		}
-		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
+		if (c.indexOf(u_id) == 0) {
+			return c.substring(u_id.length, c.length);
 		}
 	}
 	return "";
