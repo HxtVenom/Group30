@@ -77,7 +77,7 @@ function doSearch() {
 				var response = JSON.parse(this.response);
         var display = "";
         response.results.forEach(element => {
-          display += `<div class="row">${element.fname} ${element.lname}</div>`
+          display += `<div class="row">${element.fname} ${element.lname} ${element.phone} ${element.address} ${element.dateCreated"} ${element.lastModified}</div>`
         });
         document.getElementById("list").innerHTML = display;
 			}
