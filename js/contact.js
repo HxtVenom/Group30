@@ -42,9 +42,9 @@ function addContact() {
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactResult").innerHTML = "New Contact Successfully Created. Navigating back to Contacts Page.";		
+				document.getElementById("contactResult").innerHTML = "New Contact Successfully Created";		
 
-				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},3000)
+				setTimeout(function(){document.getElementById("contactResult").innerHTML = "";},3000)
 			}
       else if(this.readyState == 4 && this.status == 400)
       {
