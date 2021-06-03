@@ -13,7 +13,7 @@
   else
   {
     $stmt = $conn->prepare("DELETE FROM Contacts WHERE u_id=?");
-    $stmt->bind_param("i", $c_id, $u_id);
+    $stmt->bind_param("i", $u_id);
     $execResult = $stmt->execute();
 
     if( false===$execResult )
