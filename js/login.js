@@ -22,12 +22,12 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("loginText").innerHTML = "Logging In!";
-				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},2000)
 				var response = JSON.parse(this.response);
 				var date = new Date();
 				var days = 1; //the number of days the cookie will last
 				date.setTime(date.getTime() + (days*24*60*60*1000));
 				document.cookie = "u_id="+response.u_id+"; expires=" + date + ";path=/";
+				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},1000)
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
