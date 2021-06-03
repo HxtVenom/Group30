@@ -20,7 +20,7 @@ function getUID() {
 
 function logout() {
 	document.cookie = "u_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-	setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/index.html";},2000)
+	window.location.href = "https://contacts.rruiz.dev/index.html";
 }
 
 function addContact() {
