@@ -51,11 +51,11 @@ function doRegister()
 	  document.getElementById("errorReenterPassword").innerHTML = "";
 	}
 
-  var jsonPayload = JSON.stringify({fname: firstName, lname: lastName, email: email, password: hash}); 
-  var url = urlBase + '/register.' + extension; 
+  	var jsonPayload = JSON.stringify({fname: firstName, lname: lastName, email: email, password: hash}); 
+  	var url = urlBase + '/register.' + extension; 
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
+  	var xhr = new XMLHttpRequest();
+  	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
 	try
@@ -68,13 +68,13 @@ function doRegister()
 
 				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/index.html";},3000)
 			}
-      		else if(this.readyState == 4 && this.status == 409)
-      		{
-        		document.getElementById("registerationResult").innerHTML = "User already exists!";
-      		}
-      		else{
-        		document.getElementById("registerationResult").innerHTML = "";
-      		}
+			else if(this.readyState == 4 && this.status == 409)
+			{
+				document.getElementById("registerationResult").innerHTML = "User already exists!";
+			}
+			else{
+				document.getElementById("registerationResult").innerHTML = "";
+			}
 		};
 		xhr.send(jsonPayload);
 	}
