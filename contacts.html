@@ -19,28 +19,35 @@
 		<div class="row">
 			<h1 style="float: left">Contacts</h1>
 		</div>
-		<div class="popup" id="contact-popup">
-			<div class="container">
-				<h2>Add Contact</h2>
-				<div class="row">
-						<input class="thinnerInput" type="text" id="firstName" placeholder="First Name">
-						<input class="thinnerInput" type="text" id="lastName" placeholder="Last Name">
-						<input class="thinnerInput" type="text" id="phone" placeholder="Phone Number">
-						<input class="thinnerInput" type="text" id="address" placeholder="Address">
-				</div>
-				<div class="row">
-					<button type="button" id="addButton" onclick="addContact()">Add</button>
-					<!--May also have to move this to be under the open button -->
-					<p id="contactResult"></p>
-					<button type="button" id="cancelButton" onclick="closePopup()">Close</button>
+		<div class="modal" id="contact-popup">
+				<div class="modal-content">
+					<span onclick="closePopup()" class="modal-button">&times;</span>
+					<h2>Add Contact</h2>
+					<!-- Took out the row to make the pop up taller-->
+					<div class="modal-container">
+						<label for="firstName">First Name</label>
+						<input class="thinnerInput" type="text" id="firstName" placeholder="Enter Name"><br>
+						<label for="lastName">Last Name</label>
+						<input class="thinnerInput" type="text" id="lastName" placeholder="Enter Name"><br>
+						<label for="phone">Phone Number</label>
+						<input class="thinnerInput" type="text" id="phone" placeholder="Enter Phone Number"><br>
+						<label for="address">Enter Address</label>
+						<input class="thinnerInput" type="text" id="address" placeholder="Enter Address"><br>
+					</div>
+					<div class="row">
+						<button type="button" id="addButton" onclick="addContact()">Add</button>
+						<!--May also have to move this to be under the open button -->
+						<p id="contactResult"></p>
+						<button type="button" id="cancelButton" onclick="closePopup()">Close</button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!--Either keep the popup over the button or hide the button (JQuery) -->
-		<div class="row">
-				<button type="button" id="open" onclick="openPopup()">Add Contact</button>
-		</div>
-		<hr/>
+			<!--Either keep the popup over the button or hide the button (JQuery) -->
+			<div class="row">
+					<button type="button" onclick="openPopup()" id="open">Add Contact</button>
+			</div>
+			<!--This hr shows through everything for some reason(top layer on screen)-->
+			<hr/>
 
 		<div class="row">
 			<input style="margin-right: 5px" type="text" id ="searchValue" placeholder="Search..." required>

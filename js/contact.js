@@ -111,13 +111,12 @@ function openPopup(){
 	document.getElementById("contact-popup").style.display = "block";
 }
 
-$("#open").click(function(){
-	$("#open").hide();
-});
-
 function closePopup(){
 	document.getElementById("contact-popup").style.display = "none";
-	$("#cancelButton").click(function(){
-    $("#open").show();
-  });
+}
+
+window.onclick = function(e){
+	if(e.target == document.getElementById("contact-popup")){
+		document.getElementById("contact-popup").style.display = "none";
+	}
 }
