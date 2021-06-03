@@ -136,6 +136,7 @@ input {
 	text-align: center;
 	display: block;
 	border:2px outset black;
+	top:200px; /* change this value to change position of the modal box*/
 }
 
 .modal-button{
