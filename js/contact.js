@@ -18,6 +18,11 @@ function getUID() {
 	return "";
 }
 
+function logout() {
+	document.cookie = "u_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/index.html";},2000)
+}
+
 function addContact() {
   //var u_id = getUID(); // ADD FUNCTIONALITY TO PULL u_id from cookie
   var fname = "";
@@ -75,14 +80,19 @@ function doSearch() {
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				var response = JSON.parse(this.response);
-        var display = "";
-        response.results.forEach(element => {
-          display += `<div class="row">${element.fname} ${element.lname}</div>`
-        });
-        document.getElementById("list").innerHTML = display;
+				var display = "";
+				response.results.forEach(element => {
+				  display += `<div class="row">${element.fname} ${element.lname}</div>`
+				});
+				document.getElementById("list").innerHTML = display;
+				document.getElementById("searchResult").display = 'none';
+				document.getElementById("list").display = 'block';
+				document.getElementById("showResultsButton").display = 'block';
 			}
       else if(this.readyState == 4 && this.status == 404)
       {
+		document.getElementById("list").display = 'none';
+		document.getElementById("searchResult").display = 'block';
         document.getElementById("searchResult").innerHTML = "<h1>No contacts found.</h1>";
       }
 		};
@@ -90,4 +100,14 @@ function doSearch() {
   }catch (err) {
     document.getElementById("").innerHTML = err.message; // SET ID OF HTML
   }
+}
+
+function showAndHide() {
+	var x = document.getElementById('SearchResults');
+	if(x.style.display == 'none'){
+		x.style.display = 'block';
+	}
+	else {
+		x.style.display = 'none';
+	}
 }

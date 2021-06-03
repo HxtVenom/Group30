@@ -14,23 +14,29 @@ html{
 	min-height: 100vh;
 }
 
+hr {
+	opacity: 50%;
+	width: 80%;
+}
+
+
 p, h1, h2 {
 	text-align: center;
 }
 
 p {
-	font-size: 1.75vw;
+	font-size: min(1.75vw, 22px);
 }
 
 h1 {
 	font-variant: small-caps;
-	font-size: 4vw;
+	font-size: min(4vw, 64px);
 }
 
 button {
 	border: none;
 	background-color: lightgrey;
-	font-size: 1.75vw;
+	font-size: min(1.75vw, 30px);
 	border: solid 2px rgba(0,0,0,0.5);
 	width: 20%;
 	text-align: center;
@@ -47,7 +53,7 @@ button:hover {
 input {
 	background-color: lightgrey;
 	border: solid 2px rgba(0,0,0,0.5);
-	font-size: 1.75vw;
+	font-size: min(1.75vw, 30px);
 	margin-left: 5px;
 	margin-right: 5px;
 }
@@ -66,6 +72,23 @@ input {
 	border: solid 2px rgba(0,0,0,1);
 }
 
+.box2 {
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	border-style: solid;
+	border-color: white;
+	background-color: rgb(240, 240, 240);
+	box-shadow: 0px 3px 10px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 2px rgba(0,0,0,1);
+}
+
+.thinnerInput {
+	width: 45%;
+}
+
 /*Responsive Web Design Stuff*/
 .row {
 	margin: 10px;
@@ -82,19 +105,14 @@ input {
 }
 
 
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 700px)
 {
 	.box {
-		animation-name: fadeIn;
-		animation-duration: 2s;
-		border-style: solid;
-		border-color: white;
-		background-color: rgb(240, 240, 240);
-		box-shadow: 0px 3px 10px;
 		width: 75%;
-		margin-left: auto;
-		margin-right: auto;
-		border: solid 2px rgba(0,0,0,1);
+	}
+	
+	.thinnerInput {
+		width: 50%;
 	}
 	
 	p {
@@ -117,4 +135,11 @@ input {
 		font-size: 5vw;
 	}
 
+}
+
+@media only screen and (min-width: 1922px)
+{
+	.box2 {
+		width: 50%;
+	}
 }

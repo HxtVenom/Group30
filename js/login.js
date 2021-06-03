@@ -22,9 +22,12 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("loginText").innerHTML = "Logging In!";
-				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},3000)
+				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},2000)
 				var response = JSON.parse(this.response);
-				document.cookie = "u_id="+response.u_id+";";
+				var date = new Date();
+				var days = 1; //the number of days the cookie will last
+				date.setTime(date.getTime() + (days*24*60*60*1000));
+				document.cookie = "u_id="+response.u_id+"; expires=" + date + ";path=/";
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
