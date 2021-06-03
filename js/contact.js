@@ -36,18 +36,18 @@ function addContact() {
   address = document.getElementById("address").value;
 
   var jsonPayload = JSON.stringify({fname, lname, phone, address, u_id});
-  var url = urlBase + '/addContact.' + extension; 
+  var url = urlBase + '/addContact.' + extension;
 
   var xhr = new XMLHttpRequest
   xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
   try{
-    xhr.onreadystatechange = function() 
+    xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("contactResult").innerHTML = "New Contact Successfully Created";		
+				document.getElementById("contactResult").innerHTML = "New Contact Successfully Created";
 
 				setTimeout(function(){document.getElementById("contactResult").innerHTML = "";},3000)
 			}
@@ -66,18 +66,18 @@ function doSearch() {
   var search = "";
 
   search = document.getElementById("searchValue").value;
-  
+
   var jsonPayload = JSON.stringify({search, u_id});
-  var url = urlBase + '/search.' + extension; 
+  var url = urlBase + '/search.' + extension;
 
   var xhr = new XMLHttpRequest
   xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
   try{
-    xhr.onreadystatechange = function() 
+    xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState == 4 && this.status == 200)
 			{
 				var response = JSON.parse(this.response);
 				var display = "";
@@ -105,4 +105,19 @@ function showAndHide() {
 	else {
 		x.style.display = 'none';
 	}
+}
+
+function openPopup(){
+	document.getElementById("contact-popup").style.display = "block";
+}
+
+$("#open").click(function(){
+	$("#open").hide();
+});
+
+function closePopup(){
+	document.getElementById("contact-popup").style.display = "none";
+	$("#cancelButton").click(function(){
+    $("#open").show();
+  });
 }
