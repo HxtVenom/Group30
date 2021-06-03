@@ -21,7 +21,7 @@
     }
 
     $result = $stmt->get_result();
-    $searchResult = ""
+    $searchResult = "";
 
     if($row = $result->fetch_assoc()){
       $searchResult .= json_encode($row);
