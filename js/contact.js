@@ -52,8 +52,11 @@ function addContact() {
 				document.getElementById("lastName").value = "";
 				document.getElementById("phone").value = "";
 				document.getElementById("address").value = "";
-				closePopup();
-				setTimeout(function(){document.getElementById("contactResult").innerHTML = "";},3000)
+				setTimeout(function()
+				{
+					closePopup(); 
+					document.getElementById("contactResult").innerHTML = "";
+				},2000)
 			}
       else if(this.readyState == 4 && this.status == 400)
       {
