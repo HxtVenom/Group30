@@ -27,7 +27,7 @@ function doLogin()
 				var days = 1; //the number of days the cookie will last
 				date.setTime(date.getTime() + (days*24*60*60*1000));
 				document.cookie = "u_id="+response.u_id+"; expires=" + date + ";path=/";
-				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},1000)
+				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/contacts.html";},1500)
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
