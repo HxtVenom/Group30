@@ -85,16 +85,11 @@ function doSearch() {
 				  display += `<div class="row">${element.fname} ${element.lname}</div>`
 				});
 				document.getElementById("list").innerHTML = display;
-				document.getElementById("searchResult").display = 'none';
-				document.getElementById("list").display = 'block';
-				document.getElementById("showResultsButton").display = 'block';
 			}
-      else if(this.readyState == 4 && this.status == 404)
-      {
-		document.getElementById("list").display = 'none';
-		document.getElementById("searchResult").display = 'block';
-        document.getElementById("searchResult").innerHTML = "<h1>No contacts found.</h1>";
-      }
+			else if(this.readyState == 4 && this.status == 404)
+			{
+				document.getElementById("list").innerHTML = "No contacts found";
+			}
 		};
 		xhr.send(jsonPayload);
   }catch (err) {
