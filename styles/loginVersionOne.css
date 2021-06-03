@@ -105,6 +105,7 @@ input {
 }
 
 .modal{
+	background-color: rgba(0,0,0,0.6); /*change the last value to change the dimness; from 0-9*/
 	display: none;
 	position: fixed;
 	left: 0;
