@@ -120,5 +120,6 @@ function closePopup(){
 window.onclick = function(e){
 	if(e.target == document.getElementById("contact-popup")){
 		document.getElementById("contact-popup").style.display = "none";
+		document.getElementById("box2").classList.remove("blur");
 	}
 }
