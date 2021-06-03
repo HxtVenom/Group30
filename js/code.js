@@ -22,8 +22,10 @@ function doRegister()
 		document.getElementById("errorName").innerHTML = "";
 	}
 	  
-	if(email.length == 0){
-		document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter an email!</b>";
+	var emailRegex = /^[^.][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]{1,64}@{1}[a-zA-Z0-9-.]{1,255}\.{1}[a-z]+/;
+	var result = email.match(emailRegex);
+	if(email != result){
+		document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter a valid email!</b>";
 		return;
 	}
 	else
@@ -56,7 +58,7 @@ function doRegister()
   xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-  try
+	try
 	{
 		xhr.onreadystatechange = function() 
 		{
@@ -66,13 +68,13 @@ function doRegister()
 
 				setTimeout(function(){window.location.href = "https://contacts.rruiz.dev/index.html";},3000)
 			}
-      else if(this.readyState == 4 && this.status == 409)
-      {
-        document.getElementById("registerationResult").innerHTML = "User already exists!";
-      }
-      else{
-        document.getElementById("registerationResult").innerHTML = "";
-      }
+      		else if(this.readyState == 4 && this.status == 409)
+      		{
+        		document.getElementById("registerationResult").innerHTML = "User already exists!";
+      		}
+      		else{
+        		document.getElementById("registerationResult").innerHTML = "";
+      		}
 		};
 		xhr.send(jsonPayload);
 	}
