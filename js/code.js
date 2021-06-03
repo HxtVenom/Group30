@@ -22,7 +22,7 @@ function doRegister()
 		document.getElementById("errorName").innerHTML = "";
 	}
 	  
-	var emailRegex = /^[^.][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]{1,64}@{1}[a-zA-Z0-9-.]{1,255}\.{1}[a-z]+/;
+	var emailRegex = /^[^.][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]{1,64}@{1}[a-zA-Z0-9-.]{1,255}[^.]\.{1}[a-z]+/;
 	var result = email.match(emailRegex);
 	if(email != result){
 		document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter a valid email!</b>";
