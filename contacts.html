@@ -2,6 +2,12 @@
 <html lang="en">
 <!--Registration Page-->
 <head>
+	<style>
+		.blur{
+			filter: blur(20px);
+			user-select: none;
+		}
+	</style>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="js/md5.js"></script>
@@ -12,36 +18,15 @@
 	<link rel="stylesheet" type="text/css" href="styles/loginVersionOne.css"/>
 	<title>Contacts</title>
 </head>
+
 <body>
-	<div class="box2">
+	<div class="box2" id="box2">
 		<button style="float: right; margin-top: 5px;" type="button" id="logoutButton" onclick="logout()">Log out</button>
 		<div class="row"><hr /></div>
 		<div class="row">
 			<h1 style="float: left">Contacts</h1>
 		</div>
-		<div class="modal" id="contact-popup">
-				<div class="modal-content">
-					<span onclick="closePopup()" class="modal-button">&times;</span>
-					<h2>Add Contact</h2>
-					<!-- Took out the row to make the pop up taller-->
-					<div class="modal-container">
-						<label for="firstName">First Name</label>
-						<input class="thinnerInput" type="text" id="firstName" placeholder="Enter Name"><br>
-						<label for="lastName">Last Name</label>
-						<input class="thinnerInput" type="text" id="lastName" placeholder="Enter Name"><br>
-						<label for="phone">Phone Number</label>
-						<input class="thinnerInput" type="text" id="phone" placeholder="Enter Phone Number"><br>
-						<label for="address">Enter Address</label>
-						<input class="thinnerInput" type="text" id="address" placeholder="Enter Address"><br>
-					</div>
-					<div class="row">
-						<button type="button" id="addButton" onclick="addContact()">Add</button>
-						<!--May also have to move this to be under the open button -->
-						<p id="contactResult"></p>
-						<button type="button" id="cancelButton" onclick="closePopup()">Close</button>
-					</div>
-				</div>
-			</div>
+
 			<!--Either keep the popup over the button or hide the button (JQuery) -->
 			<div class="row">
 					<button type="button" onclick="openPopup()" id="open">Add Contact</button>
@@ -61,6 +46,29 @@
 			<div id='SearchResults'>
 				<span id="searchResult"></span>
 				<div id="list"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="contact-popup">
+		<div class="modal-content">
+			<span onclick="closePopup()" class="modal-button">&times;</span>
+			<h2>Add Contact</h2>
+			<!-- Took out the row to make the pop up taller-->
+			<div class="modal-container">
+				<label for="firstName">First Name</label>
+				<input class="thinnerInput" type="text" id="firstName" placeholder="Enter Name"><br>
+				<label for="lastName">Last Name</label>
+				<input class="thinnerInput" type="text" id="lastName" placeholder="Enter Name"><br>
+				<label for="phone">Phone Number</label>
+				<input class="thinnerInput" type="text" id="phone" placeholder="Enter Phone Number"><br>
+				<label for="address">Enter Address</label>
+				<input class="thinnerInput" type="text" id="address" placeholder="Enter Address"><br>
+			</div>
+			<div class="row">
+				<button type="button" id="addButton" onclick="addContact()">Add</button>
+				<!--May also have to move this to be under the open button -->
+				<p id="contactResult"></p>
+				<button type="button" id="cancelButton" onclick="closePopup()">Close</button>
 			</div>
 		</div>
 	</div>
