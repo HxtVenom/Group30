@@ -48,7 +48,11 @@ function addContact() {
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("contactResult").innerHTML = "New Contact Successfully Created";
-
+				document.getElementById("firstName").value = "";
+				document.getElementById("lastName").value = "";
+				document.getElementById("phone").value = "";
+				document.getElementById("address").value = "";
+				closePopup();
 				setTimeout(function(){document.getElementById("contactResult").innerHTML = "";},3000)
 			}
       else if(this.readyState == 4 && this.status == 400)
