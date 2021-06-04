@@ -86,16 +86,20 @@ function doSearch() {
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
+				document.getElementById("noSearchResults").display = "none";
+				document.getElementById("searchResults").display = "block";
 				var response = JSON.parse(this.response);
 				var display = "";
 				response.results.forEach(element => {
-				  display += `<div class="row">${element.fname} ${element.lname}</div>`
+				  display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
-				document.getElementById("list").innerHTML = display;
+				document.getElementById("searchResults").innerHTML = display;
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
-				document.getElementById("list").innerHTML = "No contacts found";
+				document.getElementById("searchResults").display = "none";
+				document.getElementById("noSearchResults").innerHTML = "No contacts found";
+				document.getElementById("noSearchResults").display = "block";
 			}
 		};
 		xhr.send(jsonPayload);
