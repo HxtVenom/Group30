@@ -93,7 +93,7 @@ function doSearch() {
 				var display = "";
 				generateTableHead(table);
 				response.results.forEach(element => {
-					
+					/*
 					//find more efficient way to populate table
 					let row = table.insertRow();
 					let cell = row.insertCell();
@@ -123,7 +123,7 @@ function doSearch() {
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.lastModified);
-					cell.appendChild(text);
+					cell.appendChild(text);*/
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
 				document.getElementById("searchResults").innerHTML = display;
