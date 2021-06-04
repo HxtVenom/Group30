@@ -86,8 +86,8 @@ function doSearch() {
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("noSearchResults").display = "none";
-				document.getElementById("searchResults").display = "block";
+				document.getElementById("noSearchResults").display = 'none';
+				document.getElementById("searchResults").display = 'block';
 				var response = JSON.parse(this.response);
 				let table = document.getElementById("searchResults");
 				var display = "";
