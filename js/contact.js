@@ -90,7 +90,12 @@ function doSearch() {
 				//document.getElementById("searchResults").display = 'block';
 				var response = JSON.parse(this.response);
 				let table = document.getElementById("searchResults");
-				var display = "";
+				let rowCount = table.rows.length;
+				for(let i = 0; i <= rowCount; i++)
+				{
+					table.deleteRow(0);
+				}
+				//var display = "";
 				generateTableHead(table);
 				response.results.forEach(element => {
 					
