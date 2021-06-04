@@ -61,8 +61,10 @@ input {
 table {
 	margin: auto;
 	border: 1px solid black;
-	width: 75%;
-	overflow: auto;
+}
+
+th, td {
+	font-size: max(17px, min(1.75vw, 30px));
 }
 
 th {
@@ -225,9 +227,6 @@ td {
 
 @media only screen and (min-width: 1922px)
 {
-	table {
-		width: 50%;
-	}
 	.box2 {
 		width: 50%;
 	}
