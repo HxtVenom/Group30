@@ -100,29 +100,24 @@ function doSearch() {
 					let text = document.createTextNode(element.fname);
 					cell.appendChild(text);
 					
-					row = table.insertRow();
 					cell = row.insertCell();
 					text = document.createTextNode(element.lname);
 					cell.appendChild(text);
-					/*
-					let row = table.insertRow();
-					let cell = row.insertCell();
-					let text = document.createTextNode(element.phone);
+
+					cell = row.insertCell();
+					text = document.createTextNode(element.phone);
 					cell.appendChild(text);
 					
-					let row = table.insertRow();
-					let cell = row.insertCell();
-					let text = document.createTextNode(element.address);
+					cell = row.insertCell();
+					text = document.createTextNode(element.address);
 					cell.appendChild(text);
 					
-					let row = table.insertRow();
-					let cell = row.insertCell();
-					let text = document.createTextNode(element.dateCreated);
+					cell = row.insertCell();
+					text = document.createTextNode(element.dateCreated);
 					cell.appendChild(text);
 					
-					let row = table.insertRow();
-					let cell = row.insertCell();
-					let text = document.createTextNode(element.lastModified);
+					cell = row.insertCell();
+					text = document.createTextNode(element.lastModified);
 					cell.appendChild(text);*/
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
