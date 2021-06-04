@@ -93,13 +93,13 @@ function doSearch() {
 				var display = "";
 				generateTableHead(table);
 				response.results.forEach(element => {
-					/*
+					
 					//find more efficient way to populate table
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.fname);
 					cell.appendChild(text);
-					
+					/*
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.lname);
