@@ -91,7 +91,7 @@ function doSearch() {
 				var response = JSON.parse(this.response);
 				let table = document.getElementById("searchResults");
 				let rowCount = table.rows.length;
-				for(let i = 0; i <= rowCount; i++)
+				for(let i = 0; i < rowCount; i++)
 				{
 					table.deleteRow(0);
 				}
