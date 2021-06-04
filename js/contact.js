@@ -162,11 +162,10 @@ function generateTableHead(table) {
 }
 
 function showAndHide() {
-	/*
-	if(document.getElementById('noSearchResults').style.display == 'block';
+	if(document.getElementById("noSearchResults").style.display == 'block')
 	{
 		return;
-	}*/
+	}
 	var x = document.getElementById('searchResults');
 	if(x.style.display == 'none'){
 		x.style.display = 'table';
