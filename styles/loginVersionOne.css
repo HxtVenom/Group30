@@ -58,6 +58,20 @@ input {
 	margin-right: 5px;
 }
 
+table {
+	margin: auto;
+	border: 1px solid black;
+}
+
+th {
+	background-color: lightgray;
+	text-align: center;
+}
+td {
+	border: 1px solid black;
+	text-align: center;
+}
+
 
 .box {
 	animation-name: fadeIn;
