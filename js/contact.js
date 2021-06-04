@@ -89,9 +89,42 @@ function doSearch() {
 				document.getElementById("noSearchResults").display = "none";
 				document.getElementById("searchResults").display = "block";
 				var response = JSON.parse(this.response);
+				let table = document.getElementById("searchResults");
 				var display = "";
+				generateTableHead(table);
 				response.results.forEach(element => {
-				  display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
+					
+					//find more efficient way to populate table
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.fname);
+					cell.appendChild(text);
+					
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.lname);
+					cell.appendChild(text);
+					
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.phone);
+					cell.appendChild(text);
+					
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.address);
+					cell.appendChild(text);
+					
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.dateCreated);
+					cell.appendChild(text);
+					
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.lastModified);
+					cell.appendChild(text);
+				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
 				document.getElementById("searchResults").innerHTML = display;
 			}
@@ -106,6 +139,18 @@ function doSearch() {
   }catch (err) {
     document.getElementById("").innerHTML = err.message; // SET ID OF HTML
   }
+}
+
+function generateTableHead(table) {
+	let thead = table.createTHead();
+	let row = thead.insertRow();
+	let data = ["First Name", "Last Name", "Phone Number", "Address", "Date Created", "Date Last Modified"];
+	for (let i = 0; i < data.length; i++) {
+		let th = document.createElement("th");
+		let text = document.createTextNode(data[i]);
+		th.appendChild(text);
+		row.appendChild(th);
+	}
 }
 
 function showAndHide() {
