@@ -62,6 +62,8 @@ table {
 	margin: auto;
 	border: 1px solid black;
 	width: 75%;
+	overflow-x: auto;
+	overflow-y: auto;
 }
 
 th {
