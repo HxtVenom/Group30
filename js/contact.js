@@ -99,7 +99,7 @@ function doSearch() {
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.fname);
 					cell.appendChild(text);
-					/*
+					
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.lname);
@@ -123,7 +123,7 @@ function doSearch() {
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.lastModified);
-					cell.appendChild(text);*/
+					cell.appendChild(text);
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
 				//document.getElementById("searchResults").innerHTML = display;
