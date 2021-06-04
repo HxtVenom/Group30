@@ -86,8 +86,8 @@ function doSearch() {
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("noSearchResults").display = 'none';
-				document.getElementById("searchResults").display = 'block';
+				//document.getElementById("noSearchResults").display = 'none';
+				//document.getElementById("searchResults").display = 'block';
 				var response = JSON.parse(this.response);
 				let table = document.getElementById("searchResults");
 				var display = "";
@@ -126,13 +126,13 @@ function doSearch() {
 					cell.appendChild(text);*/
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
-				document.getElementById("searchResults").innerHTML = display;
+				//document.getElementById("searchResults").innerHTML = display;
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
-				document.getElementById("searchResults").display = "none";
+				//document.getElementById("searchResults").display = "none";
 				document.getElementById("noSearchResults").innerHTML = "No contacts found";
-				document.getElementById("noSearchResults").display = "block";
+				//document.getElementById("noSearchResults").display = "block";
 			}
 		};
 		xhr.send(jsonPayload);
