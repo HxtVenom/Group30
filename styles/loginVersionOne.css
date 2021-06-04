@@ -61,6 +61,7 @@ input {
 table {
 	margin: auto;
 	border: 1px solid black;
+	width: 75%;
 }
 
 th {
@@ -218,6 +219,9 @@ td {
 
 @media only screen and (min-width: 1922px)
 {
+	table {
+		width: 50%;
+	}
 	.box2 {
 		width: 50%;
 	}
