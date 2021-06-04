@@ -154,7 +154,7 @@ function generateTableHead(table) {
 }
 
 function showAndHide() {
-	if(document.getElementById('noSearchResults').style.display != 'none';
+	if(document.getElementById('noSearchResults').style.display == 'block';
 	{
 		return;
 	}
