@@ -86,8 +86,8 @@ function doSearch() {
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				//document.getElementById("noSearchResults").display = 'none';
-				//document.getElementById("searchResults").display = 'block';
+				document.getElementById("noSearchResults").style.display = 'none';
+				document.getElementById('searchResults').style.display = 'table';
 				var response = JSON.parse(this.response);
 				let table = document.getElementById("searchResults");
 				let rowCount = table.rows.length;
@@ -130,9 +130,9 @@ function doSearch() {
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
-				//document.getElementById("searchResults").display = "none";
+				document.getElementById('searchResults').style.display = 'none';
 				document.getElementById("noSearchResults").innerHTML = "No contacts found";
-				//document.getElementById("noSearchResults").display = "block";
+				document.getElementById("noSearchResults").style.display = 'block';
 			}
 		};
 		xhr.send(jsonPayload);
@@ -154,9 +154,9 @@ function generateTableHead(table) {
 }
 
 function showAndHide() {
-	var x = document.getElementById('SearchResults');
+	var x = document.getElementById('searchResults');
 	if(x.style.display == 'none'){
-		x.style.display = 'block';
+		x.style.display = 'table';
 	}
 	else {
 		x.style.display = 'none';
