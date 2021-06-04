@@ -62,8 +62,7 @@ table {
 	margin: auto;
 	border: 1px solid black;
 	width: 75%;
-	overflow-x: auto;
-	overflow-y: auto;
+	overflow: auto;
 }
 
 th {
@@ -100,6 +99,11 @@ td {
 	margin-left: auto;
 	margin-right: auto;
 	border: solid 2px rgba(0,0,0,1);
+}
+
+.table {
+	overflow-x: auto;
+	overflow-y: auto;
 }
 
 .thinnerInput {
