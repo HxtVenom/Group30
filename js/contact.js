@@ -130,6 +130,14 @@ function doSearch() {
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
+				//empties the table so user doesn't see it when clicking "show/hide search results
+				let table = document.getElementById("searchResults");
+				let rowCount = table.rows.length;
+				for(let i = 0; i < rowCount; i++)
+				{
+					table.deleteRow(0);
+				}
+				
 				document.getElementById('searchResults').style.display = 'none';
 				document.getElementById("noSearchResults").innerHTML = "No contacts found";
 				document.getElementById("noSearchResults").style.display = 'block';
