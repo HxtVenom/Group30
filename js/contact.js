@@ -99,12 +99,12 @@ function doSearch() {
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.fname);
 					cell.appendChild(text);
-					/*
-					let row = table.insertRow();
-					let cell = row.insertCell();
-					let text = document.createTextNode(element.lname);
-					cell.appendChild(text);
 					
+					row = table.insertRow();
+					cell = row.insertCell();
+					text = document.createTextNode(element.lname);
+					cell.appendChild(text);
+					/*
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.phone);
