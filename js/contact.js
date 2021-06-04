@@ -118,7 +118,7 @@ function doSearch() {
 					
 					cell = row.insertCell();
 					text = document.createTextNode(element.lastModified);
-					cell.appendChild(text);*/
+					cell.appendChild(text);
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
 				//document.getElementById("searchResults").innerHTML = display;
