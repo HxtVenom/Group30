@@ -15,7 +15,7 @@
 
 <body>
 	<div class="box2" id="box2">
-		<button style="float: left; margin-top: 5px;" type="button" id="deleteAccountButton" onclick="openDeletePopup()">Delete Account</button>
+		<button style="float: left; margin-top: 5px;" type="button" id="deleteAccountButton" onclick="openDeleteAccountPopup()">Delete Account</button>
 		<button style="float: right; margin-top: 5px;" type="button" id="logoutButton" onclick="logout()">Log out</button>
 		<div class="row"><hr /></div>
 		<div class="row">
@@ -44,16 +44,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal" id="delete-popup">
+	<div class="modal" id="deleteAccount-popup">
 		<div class="modal-content">
-			<span onclick="closeDeletePopup()" class="modal-button">&times;</span>
+			<span onclick="closeDeleteAccountPopup()" class="modal-button">&times;</span>
 			<h2>Are You Sure You Want To Permanently Delete Your Account?</h2>
 			<!-- Took out the row to make the pop up taller-->
 			<div class="row">
 				<button style="color:red" type="button" id="deleteAccountButton-popup" onclick="deleteAccount()"><strong>Delete My Account</strong></button>
 				<!--May also have to move this to be under the open button -->
 				<p id="deleteAccountResult"></p>
-				<button type="button" id="cancelDeleteButton" onclick="closeDeletePopup()">Cancel</button>
+				<button type="button" id="cancelDeleteAccountButton" onclick="closeDeleteAccountPopup()">Cancel</button>
 			</div>
 		</div>
 	</div>
