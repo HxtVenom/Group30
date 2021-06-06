@@ -18,6 +18,10 @@ function getUID() {
 	return "";
 }
 
+function logout() {
+	document.cookie = "u_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	window.location.href = "https://contacts.rruiz.dev/index.html";
+}
 
 function deleteAccount(){
 	var jsonPayload = JSON.stringify({u_id});
@@ -49,12 +53,6 @@ function deleteAccount(){
 	{
 		document.getElementById("").innerHTML = err.message; 
   	}
-}
-
-
-function logout() {
-	document.cookie = "u_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-	window.location.href = "https://contacts.rruiz.dev/index.html";
 }
 
 function addContact() {
