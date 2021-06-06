@@ -39,6 +39,7 @@ function deleteAccount(){
 			{
 				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
 				setTimeout(function(){
+					closeDeleteAccountPopup();
 					logout();
 					document.getElementById("deleteAccountResult").innerHTML = "";
 				},2000)
@@ -207,19 +208,26 @@ function showAndHide() {
 	}
 }
 
+function openDeleteAccountPopup(){
+	document.getElementById("deleteAccount-popup").style.display = "block";
+	document.getElementById("box2").classList.add("blur");
+}
+
 function openPopup(){
 	document.getElementById("contact-popup").style.display = "block";
 	document.getElementById("box2").classList.add("blur");
 }
 
 function closePopup(){
+	document.getElementById("deleteAccount-popup").style.display = "none";
 	document.getElementById("contact-popup").style.display = "none";
 	document.getElementById("box2").classList.remove("blur");
 }
 
 window.onclick = function(e){
-	if(e.target == document.getElementById("contact-popup")){
+	if(e.target == document.getElementById("contact-popup") || e.target == document.getElementById("deleteAccount-popup")){
 		document.getElementById("contact-popup").style.display = "none";
+		document.getElementById("deleteAccount-popup").style.display = "none";
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
