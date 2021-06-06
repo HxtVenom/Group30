@@ -18,6 +18,40 @@ function getUID() {
 	return "";
 }
 
+
+function deleteAccount(){
+	var jsonPayload = JSON.stringify({u_id});
+	var url = urlBase + '/deleteAccount.' + extension;
+
+	var xhr = new XMLHttpRequest
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
+				setTimeout(function(){
+					logout();
+					document.getElementById("deleteAccountResult").innerHTML = "";
+				},2000)
+			}
+            else if(this.readyState == 4 && this.status == 404)
+            {
+                document.getElementById("deleteAccountResult").innerHTML = "No account found";
+            }
+		};
+		xhr.send(jsonPayload);
+	}catch (err) 
+	{
+		document.getElementById("").innerHTML = err.message; 
+  	}
+}
+
+
 function logout() {
 	document.cookie = "u_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 	window.location.href = "https://contacts.rruiz.dev/index.html";
