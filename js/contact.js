@@ -39,7 +39,7 @@ function deleteAccount(){
 			{
 				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
 				setTimeout(function(){
-					closeDeleteAccountPopup();
+					closePopup();
 					logout();
 					document.getElementById("deleteAccountResult").innerHTML = "";
 				},2000)
