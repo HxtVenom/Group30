@@ -8,7 +8,7 @@
 
 * {
 	font-family: 'Montserrat Alternates';
-	cursor: url('https://contacts.rruiz.dev/CustomCursor.png'), auto !important;
+	cursor: url('https://contacts.rruiz.dev/CustomCursor.png'), default;
 }
 
 html{
