@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
 var u_id = getUID();
@@ -239,7 +238,6 @@ window.onclick = function(e){
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
-=======
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
 var u_id = getUID();
@@ -473,4 +471,3 @@ window.onclick = function(e){
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
->>>>>>> d07ae8eb47f1df519b1314c5c46701e64392be7b
