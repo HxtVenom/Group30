@@ -7,7 +7,7 @@
 
 
 * {
-	font-family: 'Roboto Slab';
+	font-family: 'Roboto';
 	cursor: url('https://contacts.rruiz.dev/CustomCursor.png'), auto !important;
 }
 
@@ -133,6 +133,9 @@ td {
 	display: table;
 }
 
+.col-1 {width: 25%;}
+.col-2 {width: 50%;}
+
 .modal{
 	animation-name: fadeIn;
 	animation-duration: 1s;
@@ -202,6 +205,10 @@ td {
 
 @media only screen and (max-width: 700px)
 {
+	[class*="col-"] {
+		width: 100%;
+	}
+	
 	.box {
 		width: 75%;
 	}
