@@ -42,6 +42,18 @@
 		</div>
 		<div class="row">
 		</div>
+		
+		<!--Makes it so that hitting "enter" when the cursor is inside the password input section, the login button is pressed-->
+			<script>
+			document.getElementById("searchValue").addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					document.getElementById("searchButton").click();
+					}
+				}
+			);
+			</script>
+		
 		<div class="row">
 			<div class="table">
 				<p id="noSearchResults"></p>
