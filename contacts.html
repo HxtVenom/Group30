@@ -10,26 +10,18 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/global.css"/>
-
+	
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Montserrat+Alternates:wght@600&family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
-
-
+	<link href="https://fonts.googleapis.com/css2?family=Cantora+One&family=Montserrat+Alternates:wght@600&family=Nunito+Sans:wght@300&display=swap" rel="stylesheet"> 
+	
+	
 	<title>Contacts</title>
 </head>
 
 <body>
 	<div class="box2" id="box2">
-		<div class="hamburger" onclick="openHamburger(this)">
-		  <div class="bar1"></div>
-		  <div class="bar2"></div>
-		  <div class="bar3"></div>
-		  <div id="myLinks">
-				<!--Change buttons to fit better (Works on mobile) -->
-			  <button type="button" id="deleteAccountButton" onclick="openDeleteAccountPopup()">Delete Account</button>
-		    <button type="button" id="logoutButton" onclick="logout()">Log out</button>
-		  </div>
-	  </div>
+		<button style="float: left; margin-top: 5px;" type="button" id="deleteAccountButton" onclick="openDeleteAccountPopup()">Delete Account</button>
+		<button style="float: right; margin-top: 5px;" type="button" id="logoutButton" onclick="logout()">Log out</button>
 		<div class="row"><hr /></div>
 		<div class="row">
 			<h1 style="float: left">Contacts</h1>
@@ -50,7 +42,7 @@
 		</div>
 		<div class="row">
 		</div>
-
+		
 		<!--Makes it so that hitting "enter" when the cursor is inside the password input section, the login button is pressed-->
 			<script>
 			document.getElementById("searchValue").addEventListener("keyup", function(event) {
@@ -61,7 +53,7 @@
 				}
 			);
 			</script>
-
+		
 		<div class="row">
 			<div class="table">
 				<p id="noSearchResults"></p>

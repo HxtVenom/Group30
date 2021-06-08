@@ -258,15 +258,3 @@ window.onclick = function(e){
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
-
-function openHamburger(x) {
-	//turns the hamburger into an X
-  x.classList.toggle("change");
-	//shows or hides the links in the hamburger
-  var links = document.getElementById("myLinks");
-  if (links.style.display === "block") {
-    links.style.display = "none";
-  } else {
-    links.style.display = "block";
-  }
-}

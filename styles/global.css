@@ -94,7 +94,7 @@ tr:nth-child(even){
 	border-style: solid;
 	border-color: gray;
 	background-color: rgb(240, 240, 240);
-
+	
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
@@ -208,47 +208,12 @@ tr:nth-child(even){
 	user-select: none;
 }
 
-.hamburger {
-  display: inline-block;
-  overflow: hidden;
-  position: relative;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-.change .bar2 {opacity: 0;}
-
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
-}
-
-.hamburger #myLinks {
-  display: none;
-}
-
-.hamburger button{
-/*Change button stuff here */
-}
-
-
 @media only screen and (max-width: 700px)
 {
 	[class*="col-"] {
 		width: 100%;
 	}
-
+	
 	.box {
 		width: 75%;
 	}
