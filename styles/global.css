@@ -7,19 +7,19 @@
 
 
 * {
-	font-family: 'Roboto';
+	font-family: 'Montserrat Alternates';
 	cursor: url('https://contacts.rruiz.dev/CustomCursor.png'), auto !important;
 }
 
 html{
-	background: white;
+	background: #204e74;
 	min-height: 100vh;
 }
 
 hr {
 	opacity: 50%;
 	width: 80%;
-	color: #ffc904;
+	color: lightsteelblue;
 }
 
 
@@ -38,7 +38,7 @@ h1 {
 
 button {
 	border: none;
-	background-color: lightgrey;
+	background-color: aliceblue;
 	font-size: min(1.75vw, 30px);
 	border: solid 2px grey;
 	width: 20%;
@@ -49,12 +49,13 @@ button {
 }
 
 button:hover {
-	background-color: #ffc904;
+	background-color: #8CADDE;
 	cursor: pointer;
 }
 
 input {
-	background-color: lightgrey;
+	font-family: Nunito Sans;
+	background-color: aliceblue;
 	border: solid 2px grey;
 	font-size: min(1.75vw, 30px);
 	margin-left: 5px;
@@ -81,6 +82,9 @@ td {
 	text-align: center;
 }
 
+tr:nth-child(even){
+	background-color: white
+}
 
 .box {
 	animation-name: fadeIn;
@@ -99,11 +103,11 @@ td {
 .box2 {
 	animation-name: fadeIn;
 	animation-duration: 2s;
-	border: solid 2px rgba(0,0,0,1);
+	border: solid 2px;
 	border-radius: 10px;
 	border-style: solid;
 	border-color: white;
-	background-color: rgb(240, 240, 240);
+	background-color: honeydew; azure; /*#B4CAD3;*/
 	box-shadow: 0px 3px 10px;
 	width: 75%;
 	margin-left: auto;
