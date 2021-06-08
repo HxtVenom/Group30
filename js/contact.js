@@ -214,8 +214,11 @@ function generateTableHead(table) {
 }
 
 function showAndHide() {
-	if(document.getElementById("noSearchResults").style.display == 'block')
+	let table = document.getElementById("searchResults");
+	let rowCount = table.rows.length;
+	if(document.getElementById("noSearchResults").style.display == 'block' || rowCount == 0)
 	{
+		x.style.display = 'none';
 		return;
 	}
 	var x = document.getElementById('searchResults');
