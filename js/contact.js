@@ -246,6 +246,7 @@ function closePopup(){
 window.onclick = function(e){
 	if(e.target == document.getElementById("contact-popup") || e.target == document.getElementById("deleteAccount-popup")){
 		document.getElementById("contact-popup").style.display = "none";
+		document.getElementById("deleteAccount-popup").style.display = "none";
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
