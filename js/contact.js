@@ -38,8 +38,8 @@ function deleteAccount(){
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
-				//document.getElementById("deleteAccountButton-popup").style.display = 'none';
-				//document.getElementById("cancelDeleteAccountButton").style.display = 'none';
+				document.getElementById("deleteAccountButton-popup").style.display = 'none';
+				document.getElementById("cancelDeleteAccountButton").style.display = 'none';
 
 				setTimeout(function(){
 					logout();
