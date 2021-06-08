@@ -235,13 +235,13 @@ function showAndHide() {
 	}
 }
 
-function openDeleteAccountPopup(){
-	document.getElementById("deleteAccount-popup").style.display = "block";
-	document.getElementById("box2").classList.add("blur");
-}
-
-function openPopup(){
-	document.getElementById("contact-popup").style.display = "block";
+function openPopup(id){
+	if(id == "addContactButton"){
+		document.getElementById("contact-popup").style.display = "block";
+	}
+	else if(id == "deleteAccountButton"){
+		document.getElementById("deleteAccount-popup").style.display = "block";
+	}
 	document.getElementById("box2").classList.add("blur");
 }
 
@@ -257,4 +257,16 @@ window.onclick = function(e){
 		document.getElementById("deleteAccount-popup").style.display = "none";
 		document.getElementById("box2").classList.remove("blur");
 	}
+}
+
+function openHamburger(x) {
+	//turns the hamburger into an X
+  x.classList.toggle("change");
+	//shows or hides the links in the hamburger
+  var links = document.getElementById("myLinks");
+  if (links.style.display === "block") {
+    links.style.display = "none";
+  } else {
+    links.style.display = "block";
+  }
 }
