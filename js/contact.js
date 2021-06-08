@@ -243,11 +243,8 @@ function closePopup(){
 }
 
 window.onclick = function(e){
-	if(e.target == document.getElementById("contact-popup")){
+	if(e.target == document.getElementById("contact-popup") || e.target == document.getElementById("deleteAccount-popup")){
 		document.getElementById("contact-popup").style.display = "none";
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
-var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
-var extension = 'php';
-var u_id = getUID();
