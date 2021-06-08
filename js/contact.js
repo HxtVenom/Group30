@@ -227,6 +227,11 @@ function showAndHide() {
 	}
 }
 
+function openDeleteAccountPopup(){
+	document.getElementById("deleteAccount-popup").style.display = "block";
+	document.getElementById("box2").classList.add("blur");
+}
+
 function openPopup(){
 	document.getElementById("contact-popup").style.display = "block";
 	document.getElementById("box2").classList.add("blur");
