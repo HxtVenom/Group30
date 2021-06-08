@@ -7,14 +7,14 @@ function doLogin()
 	var username = document.getElementById("loginName").value;
 	var password = document.getElementById("loginPassword").value;
 	var hash = md5(password);
-	
+
 	var jsonPayload = JSON.stringify({email: username, password: hash});
 	var url = urlBase + '/login.' + extension;
-	
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "appilcation/json; charset=UTF-8");
-	
+
 	try
 	{
 		xhr.onreadystatechange = function()
@@ -31,7 +31,8 @@ function doLogin()
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
-				document.getElementById("loginText").innerHTML = "Incorrect Login Info!";
+				//Supposed to change the color to red 
+				document.getElementById("loginText").innerHTML = "<span style='color: red;'>Incorrect Login Info!</span>";
 			}
 		};
 		xhr.send(jsonPayload);

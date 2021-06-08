@@ -38,6 +38,9 @@ function deleteAccount(){
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
+				document.getElementById("deleteAccountButton-popup").style.display = 'none';
+				document.getElementById("cancelDeleteAccountButton").style.display = 'none';
+
 				setTimeout(function(){
 					logout();
 					document.getElementById("deleteAccountResult").innerHTML = "";
@@ -288,13 +291,13 @@ function deleteAccount(){
 			}
             else if(this.readyState == 4 && this.status == 404)
             {
-                document.getElementById("deleteAccountResult").innerHTML = "No account found";
+                document.getElementById("deleteAccountResult").innerHTML = "<span style='color: red;'>'No account found</span>";
             }
 		};
 		xhr.send(jsonPayload);
-	}catch (err) 
+	}catch (err)
 	{
-		document.getElementById("").innerHTML = err.message; 
+		document.getElementById("").innerHTML = err.message;
   	}
 }
 
@@ -329,13 +332,13 @@ function addContact() {
 				document.getElementById("address").value = "";
 				setTimeout(function()
 				{
-					closePopup(); 
+					closePopup();
 					document.getElementById("contactResult").innerHTML = "";
 				},2000)
 			}
       else if(this.readyState == 4 && this.status == 400)
       {
-        document.getElementById("contactResult").innerHTML = "Failed to create contact.";
+        document.getElementById("contactResult").innerHTML = "<span style='color: red;'>Failed to create contact.</span>";
       }
 		};
 		xhr.send(jsonPayload);
@@ -373,13 +376,13 @@ function doSearch() {
 				//var display = "";
 				generateTableHead(table);
 				response.results.forEach(element => {
-					
+
 					//find more efficient way to populate table
 					let row = table.insertRow();
 					let cell = row.insertCell();
 					let text = document.createTextNode(element.fname);
 					cell.appendChild(text);
-					
+
 					cell = row.insertCell();
 					text = document.createTextNode(element.lname);
 					cell.appendChild(text);
@@ -387,15 +390,15 @@ function doSearch() {
 					cell = row.insertCell();
 					text = document.createTextNode(element.phone);
 					cell.appendChild(text);
-					
+
 					cell = row.insertCell();
 					text = document.createTextNode(element.address);
 					cell.appendChild(text);
-					
+
 					cell = row.insertCell();
 					text = document.createTextNode(element.dateCreated);
 					cell.appendChild(text);
-					
+
 					cell = row.insertCell();
 					text = document.createTextNode(element.lastModified);
 					cell.appendChild(text);
@@ -412,7 +415,7 @@ function doSearch() {
 				{
 					table.deleteRow(0);
 				}
-				
+
 				document.getElementById('searchResults').style.display = 'none';
 				document.getElementById("noSearchResults").innerHTML = "No contacts found";
 				document.getElementById("noSearchResults").style.display = 'block';
