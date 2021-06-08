@@ -2,12 +2,6 @@
 <html lang="en">
 <!--Registration Page-->
 <head>
-	<style>
-		.blur{
-			filter: blur(20px);
-			user-select: none;
-		}
-	</style>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="js/md5.js"></script>
@@ -21,6 +15,7 @@
 
 <body>
 	<div class="box2" id="box2">
+		<button style="float: left; margin-top: 5px;" type="button" id="deleteAccountButton" onclick="openDeleteAccountPopup()">Delete Account</button>
 		<button style="float: right; margin-top: 5px;" type="button" id="logoutButton" onclick="logout()">Log out</button>
 		<div class="row"><hr /></div>
 		<div class="row">
@@ -43,9 +38,22 @@
 			<button type="button" id="showResultsButton" onclick="showAndHide()">Show/Hide Search Results</button>
 		</div>
 		<div class="row">
-			<div id='SearchResults'>
-				<span id="searchResult"></span>
-				<div id="list"></div>
+			<div class="table">
+				<p id="noSearchResults"></p>
+				<table id="searchResults"></table>
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="deleteAccount-popup">
+		<div class="modal-content">
+			<span onclick="closePopup()" class="modal-button">&times;</span>
+			<h2>Are You Sure You Want To Permanently Delete Your Account?</h2>
+			<!-- Took out the row to make the pop up taller-->
+			<div class="row">
+				<button style="color:red" type="button" id="deleteAccountButton-popup" onclick="deleteAccount()"><strong>Delete My Account</strong></button>
+				<!--May also have to move this to be under the open button -->
+				<p id="deleteAccountResult"></p>
+				<button type="button" id="cancelDeleteAccountButton" onclick="closePopup()">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -56,9 +64,9 @@
 			<!-- Took out the row to make the pop up taller-->
 			<div class="modal-container">
 				<label for="firstName">First Name</label>
-				<input class="thinnerInput" type="text" id="firstName" placeholder="Enter Name"><br>
+				<input class="thinnerInput" type="text" id="firstName" placeholder="Enter First Name"><br>
 				<label for="lastName">Last Name</label>
-				<input class="thinnerInput" type="text" id="lastName" placeholder="Enter Name"><br>
+				<input class="thinnerInput" type="text" id="lastName" placeholder="Enter Last Name"><br>
 				<label for="phone">Phone Number</label>
 				<input class="thinnerInput" type="text" id="phone" placeholder="Enter Phone Number"><br>
 				<label for="address">Enter Address</label>

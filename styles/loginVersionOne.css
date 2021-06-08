@@ -58,6 +58,24 @@ input {
 	margin-right: 5px;
 }
 
+table {
+	margin: auto;
+	border: 1px solid black;
+}
+
+th, td {
+	font-size: max(17px, min(1.75vw, 30px));
+}
+
+th {
+	background-color: lightgray;
+	text-align: center;
+}
+td {
+	border: 1px solid black;
+	text-align: center;
+}
+
 
 .box {
 	animation-name: fadeIn;
@@ -85,6 +103,11 @@ input {
 	border: solid 2px rgba(0,0,0,1);
 }
 
+.table {
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
 .thinnerInput {
 	width: 45%;
 }
@@ -105,12 +128,16 @@ input {
 }
 
 .modal{
+	animation-name: fadeIn;
+	animation-duration: 1s;
+	background-color: rgba(0,0,0,0.6); /*change the last value to change the dimness; from 0-9*/
 	display: none;
 	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100%;
+	overflow: auto;
 }
 
 #mask{
@@ -123,7 +150,7 @@ input {
 }
 
 .modal label{
-	font-size: 1vw;
+	font-size: max(17px, 1vw);
 }
 
 .modal-content{
@@ -136,6 +163,7 @@ input {
 	text-align: center;
 	display: block;
 	border:2px outset black;
+	top:200px; /* change this value to change position of the modal box*/
 }
 
 .modal-button{
@@ -159,6 +187,11 @@ input {
 
 .modal-button:hover{
 	color: black;
+}
+
+.blur{
+	filter: blur(20px);
+	user-select: none;
 }
 
 @media only screen and (max-width: 700px)

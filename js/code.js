@@ -2,6 +2,18 @@ var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 
 var extension = 'php';
 
+
+function validEmail(email){
+	var emailRegex = /^[^.][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]{1,64}@{1}[a-zA-Z0-9-.]{1,255}[^.]\.{1}[a-z]+/;
+	var result = email.match(emailRegex);
+	if(email != result){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 function doRegister()
 {
 	var email = document.getElementById("registerEmail").value;
@@ -22,9 +34,7 @@ function doRegister()
 		document.getElementById("errorName").innerHTML = "";
 	}
 	  
-	var emailRegex = /^[^.][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]{1,64}@{1}[a-zA-Z0-9-.]{1,255}[^.]\.{1}[a-z]+/;
-	var result = email.match(emailRegex);
-	if(email != result){
+	if(!validEmail(email)){
 		document.getElementById("errorEmail").innerHTML = "<b style='color:red'>Please enter a valid email!</b>";
 		return;
 	}
