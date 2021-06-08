@@ -17,13 +17,14 @@
     $stmt->bind_param("ssss", $firstName, $lastName, $email, $password);
     $execResult = $stmt->execute();
 
+    $stmt->close();
+    $conn->close();
+
     if( false===$execResult ){
       http_response_code(409);
       returnError( $stmt->error );
+      return;
     }
-
-    $stmt->close();
-    $conn->close();
 
     http_response_code(200);
     returnSuccess("User successfully created!");
