@@ -159,15 +159,17 @@ function doSearch() {
 
 					//	edit button
 					cell = row.insertCell();
-					text = document.createElement("button");
-					text.innerHTML = "EDIT";
+					text = document.createElement("input");
+          text.type= "button";
+					text.value = "EDIT";
 					text.onclick = function(){alert("DEBUG: clicked EDIT button");};
 					cell.appendChild(text);
 
 					//	delete button
 					cell = row.insertCell();
-					text = document.createElement("button");
-					text.innerHTML = "DELETE";
+					text = document.createElement("input");
+          text.type= "button";
+					text.value = "DELETE";
 					text.onclick = function(){alert("DEBUG: clicked DELETE button");};
 					cell.appendChild(text);
 
