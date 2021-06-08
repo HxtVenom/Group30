@@ -5,6 +5,10 @@ var u_id = getUID();
 function getUID() {
 	var u_id = "u_id=";
 	var decodedCookie = decodeURIComponent(document.cookie);
+	if(decodedCookie == null)
+	{
+		window.location.href="https://contacts.rruiz.dev/index.html";
+	}
 	var ca = decodedCookie.split(';');
 	for (var i = 0; i < ca.length; i++) {
 		var c = ca[i];
