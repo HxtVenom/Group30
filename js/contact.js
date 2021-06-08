@@ -38,8 +38,8 @@ function deleteAccount(){
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
-				document.getElementById("deleteAccountButton-popup").style.display = 'none';
-				document.getElementById("cancelDeleteAccountButton").style.display = 'none';
+				//document.getElementById("deleteAccountButton-popup").style.display = 'none';
+				//document.getElementById("cancelDeleteAccountButton").style.display = 'none';
 
 				setTimeout(function(){
 					logout();
@@ -238,6 +238,7 @@ function openPopup(){
 }
 
 function closePopup(){
+	document.getElementById("deleteAccount-popup").style.display = "none";
 	document.getElementById("contact-popup").style.display = "none";
 	document.getElementById("box2").classList.remove("blur");
 }
