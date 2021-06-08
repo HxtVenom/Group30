@@ -23,6 +23,38 @@ function logout() {
 	window.location.href = "https://contacts.rruiz.dev/index.html";
 }
 
+function deleteAccount(){
+	var jsonPayload = JSON.stringify({u_id});
+	var url = urlBase + '/deleteAccount.' + extension;
+
+	var xhr = new XMLHttpRequest
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
+				setTimeout(function(){
+					logout();
+					document.getElementById("deleteAccountResult").innerHTML = "";
+				},2000)
+			}
+            else if(this.readyState == 4 && this.status == 404)
+            {
+                document.getElementById("deleteAccountResult").innerHTML = "No account found";
+            }
+		};
+		xhr.send(jsonPayload);
+	}catch (err)
+	{
+		document.getElementById("").innerHTML = err.message;
+  	}
+}
+
 function addContact() {
   //var u_id = getUID(); // ADD FUNCTIONALITY TO PULL u_id from cookie
   var fname = "";
@@ -48,8 +80,15 @@ function addContact() {
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("contactResult").innerHTML = "New Contact Successfully Created";
-
-				setTimeout(function(){document.getElementById("contactResult").innerHTML = "";},3000)
+				document.getElementById("firstName").value = "";
+				document.getElementById("lastName").value = "";
+				document.getElementById("phone").value = "";
+				document.getElementById("address").value = "";
+				setTimeout(function()
+				{
+					closePopup();
+					document.getElementById("contactResult").innerHTML = "";
+				},2000)
 			}
       else if(this.readyState == 4 && this.status == 400)
       {
@@ -79,16 +118,76 @@ function doSearch() {
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
+				document.getElementById("noSearchResults").style.display = 'none';
+				document.getElementById('searchResults').style.display = 'table';
 				var response = JSON.parse(this.response);
-				var display = "";
+				let table = document.getElementById("searchResults");
+				let rowCount = table.rows.length;
+				for(let i = 0; i < rowCount; i++)
+				{
+					table.deleteRow(0);
+				}
+				//var display = "";
+				generateTableHead(table);
 				response.results.forEach(element => {
-				  display += `<div class="row">${element.fname} ${element.lname}</div>`
+
+					//find more efficient way to populate table
+					let row = table.insertRow();
+					let cell = row.insertCell();
+					let text = document.createTextNode(element.fname);
+					cell.appendChild(text);
+
+					cell = row.insertCell();
+					text = document.createTextNode(element.lname);
+					cell.appendChild(text);
+
+					cell = row.insertCell();
+					text = document.createTextNode(element.phone);
+					cell.appendChild(text);
+
+					cell = row.insertCell();
+					text = document.createTextNode(element.address);
+					cell.appendChild(text);
+
+					cell = row.insertCell();
+					text = document.createTextNode(element.dateCreated);
+					cell.appendChild(text);
+
+					cell = row.insertCell();
+					text = document.createTextNode(element.lastModified);
+					cell.appendChild(text);
+
+					//	edit button
+					cell = row.insertCell();
+					text = document.createElement("button");
+					text.innerHTML = "EDIT";
+					text.onclick = function(){alert("DEBUG: clicked EDIT button");};
+					cell.appendChild(text);
+
+					//	delete button
+					cell = row.insertCell();
+					text = document.createElement("button");
+					text.innerHTML = "DELETE";
+					text.onclick = function(){alert("DEBUG: clicked DELETE button");};
+					cell.appendChild(text);
+
+				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
-				document.getElementById("list").innerHTML = display;
+				//document.getElementById("searchResults").innerHTML = display;
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
-				document.getElementById("list").innerHTML = "No contacts found";
+				//empties the table so user doesn't see it when clicking "show/hide search results
+				let table = document.getElementById("searchResults");
+				let rowCount = table.rows.length;
+				for(let i = 0; i < rowCount; i++)
+				{
+					table.deleteRow(0);
+				}
+
+				document.getElementById('searchResults').style.display = 'none';
+				document.getElementById("noSearchResults").innerHTML = "No contacts found";
+				document.getElementById("noSearchResults").style.display = 'block';
 			}
 		};
 		xhr.send(jsonPayload);
@@ -97,10 +196,26 @@ function doSearch() {
   }
 }
 
+function generateTableHead(table) {
+	let thead = table.createTHead();
+	let row = thead.insertRow();
+	let data = ["First Name", "Last Name", "Phone Number", "Address", "Date Created", "Date Last Modified", "Edit", "Delete"];
+	for (let i = 0; i < data.length; i++) {
+		let th = document.createElement("th");
+		let text = document.createTextNode(data[i]);
+		th.appendChild(text);
+		row.appendChild(th);
+	}
+}
+
 function showAndHide() {
-	var x = document.getElementById('SearchResults');
+	if(document.getElementById("noSearchResults").style.display == 'block')
+	{
+		return;
+	}
+	var x = document.getElementById('searchResults');
 	if(x.style.display == 'none'){
-		x.style.display = 'block';
+		x.style.display = 'table';
 	}
 	else {
 		x.style.display = 'none';
