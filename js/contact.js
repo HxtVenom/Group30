@@ -273,7 +273,7 @@ function openHamburger(x) {
 
 
 function deleteContact(u_id, c_id) {
-	var url = urlBase + '/delete' + extension;
+	var url = urlBase + '/delete.' + extension;
 	var jsonPayload = JSON.stringify({u_id, c_id});
 	var xhr = new XMLHttpRequest
 	xhr.open("POST", url, true);
