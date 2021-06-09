@@ -277,7 +277,7 @@ function openHamburger(x) {
 
 function getSingleContact(c_id) {
   var url = urlBase + '/getContact.' + extension;
-  var jsonPayload = JSON.encode({u_id, c_id});
+  var jsonPayload = JSON.stringify({u_id, c_id});
   var xhr = new XMLHttpRequest;
 
   xhr.open("POST", url, true);
