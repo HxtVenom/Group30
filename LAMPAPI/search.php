@@ -7,6 +7,7 @@
   //User will search by either first and last name/phone/address
   $search = "%" . $reqData["search"] . "%";
   $u_id = $reqData["u_id"];
+  $contactCount = $reqData["newCount"];
 
   $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname);
   if($conn->connect_error){
@@ -14,8 +15,8 @@
   }else{
     $stmt = $conn->prepare("SELECT * FROM Contacts WHERE u_id=?
       AND ((fname LIKE ?) OR (lname LIKE ?)
-      OR (phone LIKE ?) OR (address LIKE ?))");
-    $stmt->bind_param('issss', $u_id, $search, $search, $search, $search);
+      OR (phone LIKE ?) OR (address LIKE ?) OR (email LIKE ?)) LIMIT ?");
+    $stmt->bind_param('isssssi', $u_id, $search, $search, $search, $search, $search, $contactCount);
     $execResult = $stmt->execute();
 
     if( false===$execResult ){

@@ -60,7 +60,7 @@ function deleteAccount(){
 	}catch (err)
 	{
 		document.getElementById("").innerHTML = err.message;
-  	}
+  }
 }
 
 function addContact() {
@@ -69,13 +69,15 @@ function addContact() {
   var lname = "";
   var phone = "";
   var address = "";
+  var email = "";
 
   fname = document.getElementById("firstName").value;
   lname = document.getElementById("lastName").value;
   phone = document.getElementById("phone").value;
   address = document.getElementById("address").value;
+  email = document.getElementById("email").value;
 
-  var jsonPayload = JSON.stringify({fname, lname, phone, address, u_id});
+  var jsonPayload = JSON.stringify({fname, lname, phone, email, address, u_id});
   var url = urlBase + '/addContact.' + extension;
 
   var xhr = new XMLHttpRequest
@@ -91,10 +93,11 @@ function addContact() {
 				document.getElementById("firstName").value = "";
 				document.getElementById("lastName").value = "";
 				document.getElementById("phone").value = "";
+        document.getElementById("email").value = "";
 				document.getElementById("address").value = "";
 				setTimeout(function()
 				{
-					closePopup();
+					closePopup("contact-popup");
 					document.getElementById("contactResult").innerHTML = "";
 				},2000)
 			}
@@ -153,6 +156,10 @@ function doSearch() {
 					text = document.createTextNode(element.phone);
 					cell.appendChild(text);
 
+          cell = row.insertCell();
+          cell = row.createTextNode(element.email);
+          cell.appendChild();
+
 					cell = row.insertCell();
 					text = document.createTextNode(element.address);
 					cell.appendChild(text);
@@ -170,7 +177,7 @@ function doSearch() {
 					text = document.createElement("input");
           text.type = "button";
 					text.value = "EDIT";
-					text.onclick = function(){openPopup("editContactButton");};
+					text.onclick = function(){openPopup("editContact-popup");};
 					cell.appendChild(text);
 
 					//	delete button
@@ -178,7 +185,7 @@ function doSearch() {
 					text = document.createElement("input");
           text.type = "button";
 					text.value = "DELETE";
-					text.onclick = function() {openPopup("deleteContactButton")};
+					text.onclick = function() {openPopup("deleteAccount-popup")};
 					cell.appendChild(text);
 
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
@@ -209,7 +216,7 @@ function doSearch() {
 function generateTableHead(table) {
 	let thead = table.createTHead();
 	let row = thead.insertRow();
-	let data = ["First Name", "Last Name", "Phone Number", "Address", "Date Created", "Date Last Modified", "Edit", "Delete"];
+	let data = ["First Name", "Last Name", "Phone Number", "Email", "Address", "Date Created", "Date Last Modified", "Edit", "Delete"];
 	for (let i = 0; i < data.length; i++) {
 		let th = document.createElement("th");
 		let text = document.createTextNode(data[i]);
@@ -236,37 +243,24 @@ function showAndHide() {
 }
 
 function openPopup(id){
-	if(id == "addContactButton"){
-		document.getElementById("contact-popup").style.display = "block";
-	}
-	else if(id == "editContactButton"){
-		document.getElementById("editContact-popup").style.display = "block";
-	}
-	else if(id == "deleteAccountButton"){
-		document.getElementById("deleteAccount-popup").style.display = "block";
-	}
-	else if(id == "deleteContactButton"){
-		document.getElementById("deleteContact-popup").style.display = "block";
-	}
+	document.getElementById(id).style.display = "block";
 	document.getElementById("box2").classList.add("blur");
 }
 
-function closePopup(){
-	document.getElementByID("editContact-popup").style.display = "none";
-	document.getElementById("deleteAccount-popup").style.display = "none";
-	document.getElementById("contact-popup").style.display = "none";
-	document.getElementById("deleteContact-popup").style.display = "none";
+function closePopup(id){
+	document.getElementById(id).style.display = "none";
 	document.getElementById("box2").classList.remove("blur");
 }
 
 window.onclick = function(e){
-	if(e.target == document.getElementById("contact-popup") || e.target == document.getElementById("editContact-popup") || e.target == document.getElementById("deleteAccount-popup") || e.target == document.getElementById("deleteContact-popup")){
-		document.getElementByID("editContact-popup").style.display = "none";
-		document.getElementById("contact-popup").style.display = "none";
-		document.getElementById("deleteAccount-popup").style.display = "none";
-		document.getElementById("deleteContact-popup").style.display = "none";
-		document.getElementById("box2").classList.remove("blur");
-	}
+	if(e.target == document.getElementById("contact-popup"))
+    closePopup("contact-popup");
+  else if(e.target == document.getElementById("editContact-popup"))
+    closePopup("editContact-popup");
+  else if(e.target == document.getElementById("deleteAccount-popup"))
+    closePopup("deleteAccount-popup");
+  else if(e.target == document.getElementById("deleteContact-popup"))
+    closePopup("deleteContact-popup");
 }
 
 function openHamburger(x) {
@@ -295,6 +289,7 @@ function editContact(u_id) {
 			if (this.readyState == 4 && this.status == 200)
 			{
 				doSearch();
+        closePopup('editContact-popup');
 			}
 		};
 		xhr.send(jsonPayload);
@@ -316,11 +311,11 @@ function deleteContact(u_id, c_id) {
 			if (this.readyState == 4 && this.status == 200)
 			{
 				doSearch();
+        closePopup("deleteContact-popup");
 			}
 		};
 		xhr.send(jsonPayload);
   }catch (err) {
     document.getElementById("").innerHTML = err.message; // SET ID OF HTML
   }
-
 }

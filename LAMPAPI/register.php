@@ -23,10 +23,9 @@
     if( false===$execResult ){
       http_response_code(409);
       returnError( $stmt->error );
-      return;
+    }else{
+      http_response_code(200);
+      returnSuccess("User successfully created!");
     }
-
-    http_response_code(200);
-    returnSuccess("User successfully created!");
   }
 ?>

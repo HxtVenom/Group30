@@ -21,12 +21,12 @@
     {
       http_response_code(400);
       returnError( $stmt->error );
+    }else{
+      http_response_code(200);
+      returnSuccess("Contact successfully deleted!");
     }
 
     $stmt->close();
     $conn->close();
-
-    http_response_code(200);
-    returnSuccess("Contact successfully deleted!");
   }
 ?>
