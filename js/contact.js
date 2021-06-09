@@ -178,7 +178,7 @@ function doSearch() {
 					text = document.createElement("input");
           text.type= "button";
 					text.value = "DELETE";
-					text.onclick = function() {deleteContact(u_id, element.c_id)};
+					text.onclick = function() {openPopup(deleteContactButton)};
 					cell.appendChild(text);
 
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
@@ -242,19 +242,24 @@ function openPopup(id){
 	else if(id == "deleteAccountButton"){
 		document.getElementById("deleteAccount-popup").style.display = "block";
 	}
+	else if(id == "deleteContactButton"){
+		document.getElementById("deleteContact-popup").style.display = "block";
+	}
 	document.getElementById("box2").classList.add("blur");
 }
 
 function closePopup(){
 	document.getElementById("deleteAccount-popup").style.display = "none";
 	document.getElementById("contact-popup").style.display = "none";
+	document.getElementById("deleteContact-popup").style.display = "none";
 	document.getElementById("box2").classList.remove("blur");
 }
 
 window.onclick = function(e){
-	if(e.target == document.getElementById("contact-popup") || e.target == document.getElementById("deleteAccount-popup")){
+	if(e.target == document.getElementById("contact-popup") || e.target == document.getElementById("deleteAccount-popup") || e.target == document.getElementById("deleteContact-popup")){
 		document.getElementById("contact-popup").style.display = "none";
 		document.getElementById("deleteAccount-popup").style.display = "none";
+		document.getElementById("deleteContact-popup").style.display = "none";
 		document.getElementById("box2").classList.remove("blur");
 	}
 }
