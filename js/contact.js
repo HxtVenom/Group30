@@ -178,7 +178,7 @@ function doSearch() {
 					text = document.createElement("input");
           text.type= "button";
 					text.value = "DELETE";
-					text.onclick = deleteContact(u_id, element.c_id);
+					text.onclick = function() {deleteContact(u_id, element.c_id)};
 					cell.appendChild(text);
 
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
