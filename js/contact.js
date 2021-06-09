@@ -158,8 +158,8 @@ function doSearch(x) {
 					cell.appendChild(text);
 
           cell = row.insertCell();
-          cell = row.createTextNode(element.email);
-          cell.appendChild();
+          text = row.createTextNode(element.email);
+          cell.appendChild(text);
 
 					cell = row.insertCell();
 					text = document.createTextNode(element.address);
