@@ -329,7 +329,7 @@ function editContact(c_id) {
       {
         if (this.readyState == 4 && this.status == 200)
         {
-          document.getElementById("editContactResult").value = "Successfullt Updated Contact!"
+          document.getElementById("editContactResult").innerHTML = "Successfully Updated Contact!"
           
           setTimeout(function (){
             doSearch();
