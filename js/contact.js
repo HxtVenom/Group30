@@ -305,7 +305,7 @@ function getSingleContact(c_id) {
 
 function editContact(c_id) {
 	//	GET Current INFO and populate.
-  getSingleContact();
+  getSingleContact(c_id);
   
   openPopup("editContact-popup"); // OPEN POPUP
 
