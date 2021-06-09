@@ -329,13 +329,23 @@ function editContact(c_id) {
       {
         if (this.readyState == 4 && this.status == 200)
         {
-          doSearch();
-          closePopup('editContact-popup');
+          document.getElementById("editContactResult").value = "Successfullt Updated Contact!"
+          
+          setTimeout(function (){
+            doSearch();
+            closePopup('editContact-popup');
+            document.getElementById("editContactResult").value = ""
+            document.getElementById("editFirstName").value = "";
+            document.getElementById("editLastName").value = "";
+            document.getElementById("editPhone").value = "";
+            document.getElementById("editEmail").value = "";
+            document.getElementById("editAddress").value = "";
+          }, 1500);
         }
       };
       xhr.send(jsonPayload);
     }catch (err) {
-      document.getElementById("").innerHTML = err.message;
+      document.getElementById("editContactResult").innerHTML = err.message;
     }
   }
 }
