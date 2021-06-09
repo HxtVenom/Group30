@@ -124,20 +124,22 @@
 	<div class="modal" id="editContact-popup">
 		<div class="modal-content">
 			<span onclick="closePopup('editContact-popup')" class="modal-button">&times;</span>
-			<h2>Add Contact</h2>
+			<h2>Edit Contact</h2>
 			<!-- Took out the row to make the pop up taller-->
 			<div class="modal-container">
 				<label for="firstName">First Name</label>
-				<input class="thinnerInput" type="text" id="editFirstName" placeholder="Enter First Name"><br>
+				<input class="thinnerInput" type="text" id="editFirstName"><br>
 				<label for="lastName">Last Name</label>
-				<input class="thinnerInput" type="text" id="editLastName" placeholder="Enter Last Name"><br>
+				<input class="thinnerInput" type="text" id="editLastName"><br>
 				<label for="phone">Phone Number</label>
-				<input class="thinnerInput" type="text" id="editPhone" placeholder="Enter Phone Number"><br>
+				<input class="thinnerInput" type="text" id="editPhone"><br>
+        <label for="phone">Email</label>
+				<input class="thinnerInput" type="text" id="editEmail"><br>
 				<label for="address">Enter Address</label>
-				<input class="thinnerInput" type="text" id="editAddress" placeholder="Enter Address"><br>
+				<input class="thinnerInput" type="text" id="editAddress"><br>
 			</div>
 			<div class="row">
-				<button type="button" id="editContactButton" onclick="editContact()">Update</button>
+				<button type="button" id="editContactButton">Update</button>
 				<button type="button" id="cancelEditContactButton" onclick="closePopup('editContact-popup')">Close</button>
 			</div>
 			<div class="row">

@@ -278,27 +278,70 @@ function openHamburger(x) {
   }
 }
 
-function editContact(u_id) {
-	//	TODO: do the thing
-	var url = urlBase + '/update.' + extension;
-	var jsonPayload = JSON.stringify({u_id});
-	var xhr = new XMLHttpRequest
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+function getSingleContact(u_id, c_id) {
+  var url = urlBase + '/getContact.' + extension;
+  var jsonPayload = JSON.encode({u_id, c_id});
+  var xhr = new XMLHttpRequest;
 
-	try{
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				doSearch();
-        closePopup('editContact-popup');
-			}
-		};
-		xhr.send(jsonPayload);
-	}catch (err) {
-		document.getElementById("").innerHTML = err.message;
-	}
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+  try{
+    xhr.onreadystatechange = function()
+    {
+      if (this.readyState == 4 && this.status == 200)
+      {
+        var response = JSON.parse(this.response);
+        return response;
+      }
+    };
+    xhr.send(jsonPayload);
+  }catch(err){
+    document.getElementById("editContactResult").value = "Failed to Update Contact."
+  }
+}
+
+function editContact(u_id, c_id) {
+	//	GET Current INFO and populate.
+  var curr = getSingleContact(u_id, c_id);
+
+  document.getElementById("editFirstName").value = curr.fname;
+  document.getElementById("editLastName").value = curr.lname;
+  document.getElementById("editPhone").value = curr.phone;
+  document.getElementById("editEmail").value = curr.email;
+  document.getElementById("editAddress").value = curr.address;
+  
+  openPopup("editContact-popup"); // OPEN POPUP
+
+  // SET FUNCTION FOR UPDATE BUTTON
+  var button = document.getElementById("editContactButton");
+  button.onclick = function {
+    var fname = document.getElementById("editFirstName").value;
+    var lname = document.getElementById("editLastName").value;
+    var phone = document.getElementById("editPhone").value;
+    var email = document.getElementById("editEmail").value;
+    var address = document.getElementById("editAddress").value;
+
+    var url = urlBase + '/update.' + extension;
+    var jsonPayload = JSON.stringify({fname, lname, phone, email, address, c_id, u_id});
+    var xhr = new XMLHttpRequest
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try{
+      xhr.onreadystatechange = function()
+      {
+        if (this.readyState == 4 && this.status == 200)
+        {
+          doSearch();
+          closePopup('editContact-popup');
+        }
+      };
+      xhr.send(jsonPayload);
+    }catch (err) {
+      document.getElementById("").innerHTML = err.message;
+    }
+  }
 }
 
 function deleteContact(u_id, c_id) {
@@ -306,8 +349,8 @@ function deleteContact(u_id, c_id) {
   openPopup("deleteContact-popup");
 
   var button = document.getElementById("deleteContactButton-popup");
-  
-  button.onCLick = function() {
+
+  button.onclick = function() {
     var url = urlBase + '/delete.' + extension;
     var jsonPayload = JSON.stringify({u_id, c_id});
     var xhr = new XMLHttpRequest
