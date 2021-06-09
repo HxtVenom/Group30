@@ -112,12 +112,13 @@ function addContact() {
   }
 }
 
-function doSearch() {
+function doSearch(x) {
   var search = "";
+  var newCount = (x) ? 10 + x : 10;
 
   search = document.getElementById("searchValue").value;
 
-  var jsonPayload = JSON.stringify({search, u_id});
+  var jsonPayload = JSON.stringify({search, u_id, newCount});
   var url = urlBase + '/search.' + extension;
 
   var xhr = new XMLHttpRequest
@@ -228,17 +229,19 @@ function generateTableHead(table) {
 function showAndHide() {
 	let table = document.getElementById("searchResults");
 	let rowCount = table.rows.length;
-	if(document.getElementById("noSearchResults").style.display == 'block' || rowCount == 0)
+  var x = document.getElementById("noSearchResults");
+	if(x.style.display == 'block' || rowCount == 0)
 	{
 		x.style.display = 'none';
-		return;
+    return;
 	}
-	var x = document.getElementById('searchResults');
-	if(x.style.display == 'none'){
-		x.style.display = 'table';
+
+
+	if(table.style.display == 'none'){
+		table.style.display = 'table';
 	}
 	else {
-		x.style.display = 'none';
+		table.style.display = 'none';
 	}
 }
 
