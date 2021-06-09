@@ -64,7 +64,6 @@ function deleteAccount(){
 }
 
 function addContact() {
-  //var u_id = getUID(); // ADD FUNCTIONALITY TO PULL u_id from cookie
   var fname = "";
   var lname = "";
   var phone = "";
@@ -139,7 +138,7 @@ function doSearch(x) {
 				{
 					table.deleteRow(0);
 				}
-				//var display = "";
+        
 				generateTableHead(table);
 				response.results.forEach(element => {
 
@@ -178,7 +177,7 @@ function doSearch(x) {
 					text = document.createElement("input");
           text.type = "button";
 					text.value = "EDIT";
-					text.onclick = function(){openPopup("editContact-popup");};
+					text.onclick = function(){editContact(element.c_id)};
 					cell.appendChild(text);
 
 					//	delete button
@@ -186,12 +185,10 @@ function doSearch(x) {
 					text = document.createElement("input");
           text.type = "button";
 					text.value = "DELETE";
-					text.onclick = function () {deleteContact(u_id, element.c_id)};
+					text.onclick = function () {deleteContact(element.c_id)};
 					cell.appendChild(text);
 
-				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
 				});
-				//document.getElementById("searchResults").innerHTML = display;
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
@@ -278,7 +275,7 @@ function openHamburger(x) {
   }
 }
 
-function getSingleContact(u_id, c_id) {
+function getSingleContact(c_id) {
   var url = urlBase + '/getContact.' + extension;
   var jsonPayload = JSON.encode({u_id, c_id});
   var xhr = new XMLHttpRequest;
@@ -291,8 +288,7 @@ function getSingleContact(u_id, c_id) {
     {
       if (this.readyState == 4 && this.status == 200)
       {
-        var response = JSON.parse(this.response);
-        return response;
+        return JSON.parse(this.response);
       }
     };
     xhr.send(jsonPayload);
@@ -301,9 +297,9 @@ function getSingleContact(u_id, c_id) {
   }
 }
 
-function editContact(u_id, c_id) {
+function editContact( c_id) {
 	//	GET Current INFO and populate.
-  var curr = getSingleContact(u_id, c_id);
+  var curr = getSingleContact(c_id);
 
   document.getElementById("editFirstName").value = curr.fname;
   document.getElementById("editLastName").value = curr.lname;
@@ -315,7 +311,7 @@ function editContact(u_id, c_id) {
 
   // SET FUNCTION FOR UPDATE BUTTON
   var button = document.getElementById("editContactButton");
-  button.onclick = function {
+  button.onclick = function (){
     var fname = document.getElementById("editFirstName").value;
     var lname = document.getElementById("editLastName").value;
     var phone = document.getElementById("editPhone").value;
@@ -344,7 +340,7 @@ function editContact(u_id, c_id) {
   }
 }
 
-function deleteContact(u_id, c_id) {
+function deleteContact(c_id) {
 
   openPopup("deleteContact-popup");
 
