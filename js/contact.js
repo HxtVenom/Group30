@@ -299,7 +299,7 @@ function getSingleContact(c_id) {
     };
     xhr.send(jsonPayload);
   }catch(err){
-    document.getElementById("editContactResult").value = "Failed to Update Contact."
+    document.getElementById("editContactResult").innerHTML = "Failed to Update Contact."
   }
 }
 
