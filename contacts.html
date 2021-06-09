@@ -81,6 +81,19 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal" id="deleteContact-popup">
+		<div class="modal-content">
+			<span onclick="closePopup()" class="modal-button">&times;</span>
+			<h2>Are You Sure You Want To Permanently Delete This Contact?</h2>
+			<!-- Took out the row to make the pop up taller-->
+			<div class="row">
+				<button style="color:red" type="button" id="deleteContactButton-popup" onclick="deleteContact('u_id, element.c_id')"><strong>Delete This Contact</strong></button>
+				<!--May also have to move this to be under the open button -->
+				<p id="deleteContactResult"></p>
+				<button type="button" id="cancelDeleteContactButton" onclick="closePopup()">Cancel</button>
+			</div>
+		</div>
+	</div>
 	<div class="modal" id="contact-popup">
 		<div class="modal-content">
 			<span onclick="closePopup()" class="modal-button">&times;</span>
