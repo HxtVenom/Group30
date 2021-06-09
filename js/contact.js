@@ -288,7 +288,13 @@ function getSingleContact(c_id) {
     {
       if (this.readyState == 4 && this.status == 200)
       {
-        return JSON.parse(this.response);
+        var curr = JSON.parse(this.response);
+
+        document.getElementById("editFirstName").value = curr.fname;
+        document.getElementById("editLastName").value = curr.lname;
+        document.getElementById("editPhone").value = curr.phone;
+        document.getElementById("editEmail").value = curr.email;
+        document.getElementById("editAddress").value = curr.address;
       }
     };
     xhr.send(jsonPayload);
@@ -297,15 +303,9 @@ function getSingleContact(c_id) {
   }
 }
 
-function editContact( c_id) {
+function editContact(c_id) {
 	//	GET Current INFO and populate.
-  var curr = getSingleContact(c_id);
-
-  document.getElementById("editFirstName").value = curr.fname;
-  document.getElementById("editLastName").value = curr.lname;
-  document.getElementById("editPhone").value = curr.phone;
-  document.getElementById("editEmail").value = curr.email;
-  document.getElementById("editAddress").value = curr.address;
+  getSingleContact();
   
   openPopup("editContact-popup"); // OPEN POPUP
 

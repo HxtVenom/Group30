@@ -20,6 +20,7 @@
   $lname = $reqData["lname"];
   $phone = $reqData["phone"];
   $address = $reqData["address"];
+  $email = $reqData["email"];
 
   // Create DB Connection.
   $conn = new mysqli($server, $dbUsername, $dbPassword, $dbname);
@@ -42,15 +43,14 @@
         $fname = ($fname == null || $fname == "") ? $row["fname"] : $fname;
         $lname = ($lname == null || $lname == "") ? $row["lname"] : $lname;
         $phone = ($phone == null || $phone == "") ? $row["phone"] : $phone;
-        $address = ($address == null || $address == "") ? $row["address"] : $address;
       }
 
       $stmt->close();
     }
 
     //  sql update logic
-    $stmt = $conn->prepare("UPDATE Contacts SET fname=?,lname=?,phone=?,address=?,lastModified=NOW() WHERE c_id=?");
-    $stmt->bind_param("ssssi", $fname, $lname, $phone, $address, $c_id);
+    $stmt = $conn->prepare("UPDATE Contacts SET fname=?,lname=?,phone=?,email=?,address=?,lastModified=NOW() WHERE c_id=? AND u_id=?");
+    $stmt->bind_param("sssssii", $fname, $lname, $phone, $email, $address, $c_id, $u_id);
     $execResult = $stmt->execute();
 
 
