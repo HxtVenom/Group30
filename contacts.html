@@ -119,5 +119,30 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal" id="editContact-popup">
+		<div class="modal-content">
+			<span onclick="closePopup()" class="modal-button">&times;</span>
+			<h2>Add Contact</h2>
+			<!-- Took out the row to make the pop up taller-->
+			<div class="modal-container">
+				<label for="firstName">First Name</label>
+				<input class="thinnerInput" type="text" id="editFirstName" placeholder="Enter First Name"><br>
+				<label for="lastName">Last Name</label>
+				<input class="thinnerInput" type="text" id="editLastName" placeholder="Enter Last Name"><br>
+				<label for="phone">Phone Number</label>
+				<input class="thinnerInput" type="text" id="editPhone" placeholder="Enter Phone Number"><br>
+				<label for="address">Enter Address</label>
+				<input class="thinnerInput" type="text" id="editAddress" placeholder="Enter Address"><br>
+			</div>
+			<div class="row">
+				<button type="button" id="editContactButton" onclick="editContact()">Update</button>
+				<button type="button" id="cancelEditContactButton" onclick="closePopup()">Close</button>
+			</div>
+			<div class="row">
+				<!--May also have to move this to be under the open button -->
+				<p id="editContactResult"></p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
