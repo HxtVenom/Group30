@@ -186,7 +186,7 @@ function doSearch(x) {
 					text = document.createElement("input");
           text.type = "button";
 					text.value = "DELETE";
-					text.onclick = function() {openPopup("deleteAccount-popup")};
+					text.onclick = function () {deleteContact(u_id, element.c_id)};
 					cell.appendChild(text);
 
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
@@ -302,23 +302,30 @@ function editContact(u_id) {
 }
 
 function deleteContact(u_id, c_id) {
-	var url = urlBase + '/delete.' + extension;
-	var jsonPayload = JSON.stringify({u_id, c_id});
-	var xhr = new XMLHttpRequest
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-  try{
-    xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				doSearch();
-        closePopup("deleteContact-popup");
-			}
-		};
-		xhr.send(jsonPayload);
-  }catch (err) {
-    document.getElementById("").innerHTML = err.message; // SET ID OF HTML
+  openPopup("deleteContact-popup");
+
+  var button = document.getElementById("deleteContactButton-popup");
+  
+  button.onCLick = function() {
+    var url = urlBase + '/delete.' + extension;
+    var jsonPayload = JSON.stringify({u_id, c_id});
+    var xhr = new XMLHttpRequest
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try{
+      xhr.onreadystatechange = function()
+      {
+        if (this.readyState == 4 && this.status == 200)
+        {
+          doSearch();
+          closePopup("deleteContact-popup");
+        }
+      };
+      xhr.send(jsonPayload);
+    }catch (err) {
+      document.getElementById("").innerHTML = err.message; // SET ID OF HTML
+    }
   }
 }
