@@ -178,7 +178,7 @@ function doSearch() {
 					text = document.createElement("input");
           text.type= "button";
 					text.value = "DELETE";
-					text.onclick = function(){alert("DEBUG: clicked DELETE button");};
+					text.onclick = deleteContact(u_id, element.c_id);
 					cell.appendChild(text);
 
 				  //display += `<tr>${element.fname} ${element.lname} ${element.address}</tr>`
@@ -269,4 +269,27 @@ function openHamburger(x) {
   } else {
     links.style.display = "block";
   }
+}
+
+
+function deleteContact(u_id, c_id) {
+	var url = urlBase + '/delete' + extension;
+	var jsonPayload = JSON.stringify({u_id, c_id});
+	var xhr = new XMLHttpRequest
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+  try{
+    xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				doSearch();
+			}
+		};
+		xhr.send(jsonPayload);
+  }catch (err) {
+    document.getElementById("").innerHTML = err.message; // SET ID OF HTML
+  }
+	
 }
