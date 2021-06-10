@@ -256,6 +256,7 @@ tr:nth-child(even){
 .hamburger #myLinks {
   opacity: 0%;
   transition: 1s;
+  display: none;
 }
 
 .hamburger button{
