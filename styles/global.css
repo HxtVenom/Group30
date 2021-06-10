@@ -278,10 +278,3 @@ tr:nth-child(even){
 	}
 
 }
-
-@media only screen and (min-width: 2555px)
-{
-	.box2 {
-		width: 50%;
-	}
-}
