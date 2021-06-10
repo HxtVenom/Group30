@@ -271,8 +271,8 @@ function openHamburger(x) {
     links.style.opacity = "0";
 	setTimeout(function() {opacityToZeroWorkabout();}, 1000);
   } else {
-	setTimeout(function() {links.style.display = "block";}, 10);
-	//links.style.opacity = "1";
+	setTimeout(function() {links.style.display = "block";}, 100);
+	links.style.opacity = "1";
   }
 }
 
