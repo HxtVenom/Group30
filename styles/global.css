@@ -254,7 +254,7 @@ tr:nth-child(even){
 }
 
 .hamburger #myLinks {
-  
+  opacity: 0%;
 }
 
 .hamburger button{
