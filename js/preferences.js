@@ -25,19 +25,19 @@ function getUID() {
 
 function showAndHide(id) {
 	switch (id) {
-		case "changeUsername":
-			if(document.getElementById("changeUsername").style.display == 'block')
+		case "changeEmail":
+			if(document.getElementById("changeEmail").style.display == 'block')
 			{
-				document.getElementById("changeUsernameToggle").style.display = 'block';
-				document.getElementById("changeUsername").style.display = 'none';
-				document.getElementById("changeUsernameButton").style.display = 'none';
-				document.getElementById("changeUsernameCancel").style.display = 'none';
+				document.getElementById("changeEmailToggle").style.display = 'block';
+				document.getElementById("changeEmail").style.display = 'none';
+				document.getElementById("changeEmailButton").style.display = 'none';
+				document.getElementById("changeEmailCancel").style.display = 'none';
 			}
 			else {
-				document.getElementById("changeUsernameToggle").style.display = 'none';
-				document.getElementById("changeUsername").style.display = 'block';
-				document.getElementById("changeUsernameButton").style.display = 'block';
-				document.getElementById("changeUsernameCancel").style.display = 'block';
+				document.getElementById("changeEmailToggle").style.display = 'none';
+				document.getElementById("changeEmail").style.display = 'block';
+				document.getElementById("changeEmailButton").style.display = 'block';
+				document.getElementById("changeEmailCancel").style.display = 'block';
 			}	
 			break;
 			
@@ -116,7 +116,7 @@ window.onclick = function(e){
     closePopup("deleteContact-popup");
 }
 
-function submitUsername()
+function submitEmail()
 {
 	console.log("Submit");
 }
