@@ -74,7 +74,7 @@ function addContact() {
   phone = document.getElementById("phone").value;
   address = document.getElementById("address").value;
   email = document.getElementById("email").value;
-	
+
 	if(fname == "" && lname == "" && phone == "" && address == "" && email == "")
 	{
 		document.getElementById("contactResult").innerHTML = "You Must Fill At Least One Field";
@@ -143,7 +143,7 @@ function doSearch(x) {
 				{
 					table.deleteRow(0);
 				}
-        
+
 				generateTableHead(table);
 				response.results.forEach(element => {
 
@@ -273,6 +273,17 @@ window.onclick = function(e){
     closePopup("deleteContact-popup");
 }
 
+$(document).ready(function(){
+    var contactCount = 5;
+    $("#loadMore-btn").click(function(){
+        //loads more comments each time
+        contactCount = contactCount + 5;
+        $("#searchResults").load("search.php", {
+            newCount: contactCount
+        });
+    });
+});
+
 function openHamburger(x) {
 	//turns the hamburger into an X
   x.classList.toggle("change");
@@ -330,7 +341,7 @@ function getSingleContact(c_id) {
 function editContact(c_id) {
 	//	GET Current INFO and populate.
   getSingleContact(c_id);
-  
+
   openPopup("editContact-popup"); // OPEN POPUP
 
   // SET FUNCTION FOR UPDATE BUTTON
@@ -354,7 +365,7 @@ function editContact(c_id) {
         if (this.readyState == 4 && this.status == 200)
         {
           document.getElementById("editContactResult").innerHTML = "Successfully Updated Contact!"
-          
+
           setTimeout(function (){
             doSearch();
             closePopup('editContact-popup');
