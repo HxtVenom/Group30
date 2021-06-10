@@ -3,6 +3,7 @@ var extension = 'php';
 var u_id = getUID();
 var lastSearch="";
 var lastCount=0;
+var lastContactCount = 0;
 
 function getUID() {
 	var u_id = "u_id=";
@@ -203,6 +204,11 @@ function doSearch(x) {
 
 				});
 
+        if(response.results.length == lastContactCount){
+          document.getElementById("loadMore-btn").style.display = "none";
+        }
+
+        lastContactCount = response.results.length;
         lastSearch = search;
         lastCount = newCount;
 			}
