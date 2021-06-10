@@ -113,7 +113,7 @@ function addContact() {
 function doSearch(x) {
   var search = "";
   var newCount = (x) ? 10 + x : 10;
-
+	document.getElementById("searchResults").style.display = "table";
   search = document.getElementById("searchValue").value;
 
   var jsonPayload = JSON.stringify({search, u_id, newCount});
@@ -129,6 +129,7 @@ function doSearch(x) {
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("noSearchResults").style.display = 'none';
+				document.getElementById("noSearchResults").style.innerHTML = "";
 				document.getElementById('searchResults').style.display = 'table';
 				var response = JSON.parse(this.response);
 				let table = document.getElementById("searchResults");
@@ -228,7 +229,7 @@ function showAndHide() {
   var x = document.getElementById("noSearchResults");
 	if(x.style.display == 'block' || rowCount == 0)
 	{
-		x.style.display = 'none';
+	//	x.style.display = 'none';
     return;
 	}
 
@@ -273,6 +274,7 @@ function openHamburger(x) {
 	setTimeout(function() {opacityToZeroWorkabout();}, 300);
   } else {
 	links.style.display = "block";
+	//ensures animation plays
 	setTimeout(function() {opacityToOneWorkabout();}, 3);
   }
 }
