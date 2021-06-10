@@ -77,7 +77,7 @@ function addContact() {
 	
 	if(fname == "" && lname == "" && phone == "" && address == "" && email == "")
 	{
-		document.getElementById("contactResult").innerHTML = "You Fill At Least One Field";
+		document.getElementById("contactResult").innerHTML = "You Must Fill At Least One Field";
 		return;
 	}
 
