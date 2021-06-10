@@ -272,7 +272,8 @@ function openHamburger(x) {
 	links.style.display = "block";
   } else {
     links.style.opacity = "1";
-	setTimeout((links.style.display = "none";), 1000);
+	setTimeout(1000);
+	(links.style.display = "none";)
   }
 }
 
