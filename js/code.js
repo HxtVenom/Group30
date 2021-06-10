@@ -80,10 +80,10 @@ function doRegister()
 			}
 			else if(this.readyState == 4 && this.status == 409)
 			{
-				document.getElementById("registerationResult").innerHTML = "User already exists!";
+				document.getElementById("registrationResult").innerHTML = "User already exists!";
 			}
 			else{
-				document.getElementById("registerationResult").innerHTML = "";
+				document.getElementById("registrationResult").innerHTML = "";
 			}
 		};
 		xhr.send(jsonPayload);
