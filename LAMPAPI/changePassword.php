@@ -2,6 +2,8 @@
   require ("./lib/db.php");
   require ("./lib/helper.php");
 
+  $reqData = getRequestInfo();
+
   $u_id = $reqData["u_id"];
   $oldPassword = $reqData["oldPassword"];
   $newPassword = $reqData["newPassword"];
@@ -18,10 +20,12 @@
     $stmt->bind_param("sis", $newPassword, $u_id, $oldPassword);
     $execResult = $stmt->execute();
 
-
     if( false===$execResult ){
       http_response_code(400);
       returnError( $stmt->error );
+    }else if(mysqli_affected_rows($conn) > 0){
+      http_response_code(400);
+      returnError( "Incorrect Password" );
     }else{
       http_response_code(200);
       returnSuccess("Password successfully updated!");
