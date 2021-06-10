@@ -228,6 +228,7 @@ tr:nth-child(even){
   display: inline-block;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .bar1, .bar2, .bar3 {
@@ -258,7 +259,6 @@ tr:nth-child(even){
   opacity: 0%;
   transition:opacity 0.4s;
   display: none;
-  cursor: pointer;
 }
 
 .hamburger button{
