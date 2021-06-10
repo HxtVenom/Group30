@@ -74,6 +74,12 @@ function addContact() {
   phone = document.getElementById("phone").value;
   address = document.getElementById("address").value;
   email = document.getElementById("email").value;
+	
+	if(fname == "" && lname == "" && phone == "" && address == "" && email == "")
+	{
+		document.getElementById("contactResult").innerHTML = "You Fill At Least One Field";
+		return;
+	}
 
   var jsonPayload = JSON.stringify({fname, lname, phone, email, address, u_id});
   var url = urlBase + '/addContact.' + extension;
