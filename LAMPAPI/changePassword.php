@@ -2,6 +2,8 @@
   require ("./lib/db.php");
   require ("./lib/helper.php");
 
+  $reqData = getRequestInfo();
+
   $u_id = $reqData["u_id"];
   $oldPassword = $reqData["oldPassword"];
   $newPassword = $reqData["newPassword"];
