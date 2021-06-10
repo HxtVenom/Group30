@@ -28,18 +28,18 @@ p, h1, h2 {
 }
 
 p {
-	font-size: min(1.75vw, 22px);
+	font-size: 1.75vw;
 }
 
 h1 {
 	font-variant: small-caps;
-	font-size: min(4vw, 64px);
+	font-size: 4vw;
 }
 
 button {
 	border: none;
 	background-color: aliceblue;
-	font-size: min(1.75vw, 30px);
+	font-size: 1.75vw;
 	border: solid 2px grey;
 	width: 20%;
 	text-align: center;
@@ -57,7 +57,7 @@ input {
 	font-family: Nunito Sans;
 	background-color: aliceblue;
 	border: solid 2px grey;
-	font-size: min(1.75vw, 30px);
+	font-size: 1.75vw;
 	margin-left: 5px;
 	margin-right: 5px;
 	border-radius: 10px;
@@ -70,7 +70,7 @@ table {
 }
 
 th, td {
-	font-size: max(17px, min(1.75vw, 30px));
+	font-size: 1.75vw;
 }
 
 th {
@@ -279,7 +279,7 @@ tr:nth-child(even){
 
 }
 
-@media only screen and (min-width: 1922px)
+@media only screen and (min-width: 2555px)
 {
 	.box2 {
 		width: 50%;
