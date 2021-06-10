@@ -198,10 +198,6 @@ tr:nth-child(even){
 	font-size: max(17px, 1vw);
 }
 
-.modal button{
-	font-size: 4.25vw;
-}
-
 .modal-button:hover{
 	color: black;
 }
@@ -252,16 +248,20 @@ tr:nth-child(even){
 		width: 100%;
 	}
 
-	th, td {
-	font-size: 1.75vw;
-	}
-
 	.box {
 		width: 75%;
+	}
+	
+	.modal button{
+		font-size: 4.25vw;
 	}
 
 	.thinnerInput {
 		width: 50%;
+	}
+
+	th, td {
+		font-size: 1.75vw;
 	}
 
 	p {
@@ -283,5 +283,6 @@ tr:nth-child(even){
 	input {
 		font-size: 5vw;
 	}
+	
 
 }
