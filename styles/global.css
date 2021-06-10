@@ -68,6 +68,7 @@ input {
 	margin-right: 5px;
 	margin-bottom: 10px;
 	border-radius: 10px;
+	cursor: text;
 }
 
 table {
@@ -257,12 +258,13 @@ tr:nth-child(even){
   opacity: 0%;
   transition:opacity 0.4s;
   display: none;
+  cursor: pointer;
 }
 
 .hamburger button{
 	
 }
-
+	
 
 @media only screen and (max-width: 700px)
 {
