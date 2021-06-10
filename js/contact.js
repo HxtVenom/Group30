@@ -1,6 +1,8 @@
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
 var extension = 'php';
 var u_id = getUID();
+var lastSearch="";
+var lastCount=0;
 
 function getUID() {
 	var u_id = "u_id=";
@@ -118,8 +120,14 @@ function addContact() {
 
 function doSearch(x) {
   var search = "";
-  var newCount = (x) ? 10 + x : 10;
+  var newCount=10;
+
   search = document.getElementById("searchValue").value;
+  
+  if(lastCount != 0 && search == lastSearch)
+    newCount = lastCount;
+    
+  newCount = (x) ? newCount + x : newCount;
 
   var jsonPayload = JSON.stringify({search, u_id, newCount});
   var url = urlBase + '/search.' + extension;
@@ -194,6 +202,9 @@ function doSearch(x) {
 					cell.appendChild(text);
 
 				});
+
+        lastSearch = search;
+        lastCount = newCount;
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
@@ -273,16 +284,9 @@ window.onclick = function(e){
     closePopup("deleteContact-popup");
 }
 
-$(document).ready(function(){
-    var contactCount = 5;
-    $("#loadMore-btn").click(function(){
-        //loads more comments each time
-        contactCount = contactCount + 5;
-        $("#searchResults").load("search.php", {
-            newCount: contactCount
-        });
-    });
-});
+function getMore(){
+  doSearch(5);
+}
 
 function openHamburger(x) {
 	//turns the hamburger into an X
