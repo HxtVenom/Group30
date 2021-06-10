@@ -5,7 +5,6 @@ var u_id = getUID();
 function getUID() {
 	var u_id = "u_id=";
 	var decodedCookie = decodeURIComponent(document.cookie);
-	console.log(decodedCookie);
 	if(decodedCookie == "")
 	{
 		window.location.href="https://contacts.rruiz.dev/index.html";
