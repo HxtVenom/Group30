@@ -94,6 +94,31 @@ function deleteAccount(){
   }
 }
 
+function changeEmail(){
+	var email = document.getElementById("changeEmail").value;
+	var jsonPayload = JSON.stringfy({u_id, email});
+	
+	var xhr = new XMLHttpRequest
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+			}
+			else if(this.readyState == 4 && this.status == 404)
+			{
+			}
+		};
+		xhr.send(jsonPayload);
+	}catch (err)
+	{
+		document.getElementById("").innerHTML = err.message;
+	}
+}
 
 function openPopup(id){
 	document.getElementById(id).style.display = "block";
@@ -107,7 +132,7 @@ function closePopup(id){
 
 window.onclick = function(e){
 	if(e.target == document.getElementById("contact-popup"))
-    closePopup("contact-popup");
+    closePopup("changeEmail-popup");
   else if(e.target == document.getElementById("editContact-popup"))
     closePopup("editContact-popup");
   else if(e.target == document.getElementById("deleteAccount-popup"))
