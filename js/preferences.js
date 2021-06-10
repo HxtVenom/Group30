@@ -126,12 +126,11 @@ function changeEmail(){
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("changeEmailText").innerHTML="Success";
+				document.getElementById("changeEmailText").innerHTML="Email Succesfully Changed";
 			}
-			else if(this.readyState == 4 && this.status == 404)
+			else if(this.readyState == 4 && this.status == 409)
 			{
-				document.getElementById("changeEmailText").innerHTML="Fail";
-			}
+				document.getElementById("changeEmailText").innerHTML = "Email Already In Use";
 		};
 		xhr.send(jsonPayload);
 	}catch (err)
