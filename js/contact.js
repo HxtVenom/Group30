@@ -113,7 +113,6 @@ function addContact() {
 function doSearch(x) {
   var search = "";
   var newCount = (x) ? 10 + x : 10;
-	document.getElementById("searchResults").style.display = "table";
   search = document.getElementById("searchValue").value;
 
   var jsonPayload = JSON.stringify({search, u_id, newCount});
