@@ -36,6 +36,11 @@ h1 {
 	font-size: 4vw;
 }
 
+h2{
+	font-variant: small-caps;
+	font-size: 3vw;
+}
+
 button {
 	border: none;
 	background-color: aliceblue;
@@ -196,7 +201,7 @@ tr:nth-child(even){
 }
 
 .modal label{
-	font-size: max(17px, 1vw);
+	font-size: 1vw;
 }
 
 .modal button{
