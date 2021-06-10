@@ -131,6 +131,7 @@ function changeEmail(){
 			else if(this.readyState == 4 && this.status == 409)
 			{
 				document.getElementById("changeEmailText").innerHTML = "Email Already In Use";
+			}
 		};
 		xhr.send(jsonPayload);
 	}catch (err)
