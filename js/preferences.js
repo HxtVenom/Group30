@@ -151,11 +151,10 @@ function changePassword() {
 	}
 	
 	var jsonPayload = JSON.stringify({u_id, oldPassword, newPassword1});
-	
-	var url = urlBase + '/changePassword.' + extension;
+	var url = urlBase + '/changeEmail.' + extension;
 	var xhr = new XMLHttpRequest
 	xhr.open("POST", url, true);
-	xhr. set requestHeader("content-type", "application/json; charset=UTF-8");
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	
 	try
 	{
@@ -167,7 +166,7 @@ function changePassword() {
 			}
 			else if(this.readyState == 4 && this.status == 400)
 			{
-				document.getElementById("changePasswordText").innerHTML="Old Password Wrong";
+				document.getElementById("changePasswordText").innerHTML = "Old Password Wrong";
 			}
 		};
 		xhr.send(jsonPayload);
