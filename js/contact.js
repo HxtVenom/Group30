@@ -262,15 +262,6 @@ window.onclick = function(e){
     closePopup("deleteContact-popup");
 }
 
-function wait(ms)
-{
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while(d2-d < ms);
-}
-
-
 function openHamburger(x) {
 	//turns the hamburger into an X
   x.classList.toggle("change");
@@ -278,12 +269,16 @@ function openHamburger(x) {
   var links = document.getElementById("myLinks");
   if (links.style.opacity === "1") {
     links.style.opacity = "0";
-	wait(1000);
-	links.style.display = "none";
+	setTimeout(opacityToZeroWorkabout(), 1000);
   } else {
     links.style.opacity = "1";
 	links.style.display = "block";
   }
+}
+
+function opacityToZeroWorkabout(){
+	var links = document.getElementById("myLinks");
+	links.style.display = "none";
 }
 
 function getSingleContact(c_id) {
