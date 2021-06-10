@@ -250,7 +250,8 @@ function generateTableHead(table) {
 function showAndHide() {
 	let table = document.getElementById("searchResults");
 	let rowCount = table.rows.length;
-  var x = document.getElementById("noSearchResults");
+	let x = document.getElementById("noSearchResults");
+	let y = document.getElementById("loadMore-btn");
 	if(x.style.display == 'block' && x.innerHTML == "No contacts found" && rowCount == 0)
 	{
 		x.style.display = 'none';
@@ -264,9 +265,11 @@ function showAndHide() {
 
 
 	if(table.style.display == 'none'){
+		y.style.display = 'block';
 		table.style.display = 'table';
 	}
 	else {
+		y.style.display = 'none';
 		table.style.display = 'none';
 	}
 }
