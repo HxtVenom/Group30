@@ -108,9 +108,11 @@ function changeEmail(){
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
+				document.getElementById("changeEmailText").innerHTML="Success";
 			}
 			else if(this.readyState == 4 && this.status == 404)
 			{
+				document.getElementById("changeEmailText").innerHTML="Fail";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -139,9 +141,4 @@ window.onclick = function(e){
     closePopup("deleteAccount-popup");
   else if(e.target == document.getElementById("deleteContact-popup"))
     closePopup("deleteContact-popup");
-}
-
-function submitEmail()
-{
-	console.log("Submit");
 }
