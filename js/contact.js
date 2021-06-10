@@ -269,16 +269,24 @@ function openHamburger(x) {
   var links = document.getElementById("myLinks");
   if (links.style.opacity === "1") {
     links.style.opacity = "0";
-	setTimeout(function() {opacityToZeroWorkabout();}, 1000);
+	//ensures animation plays
+	setTimeout(function() {opacityToZeroWorkabout();}, 300);
   } else {
 	links.style.display = "block";
-	links.style.opacity = "1";
+	setTimeout(function() {opacityToZeroWorkabout();}, 300);
   }
 }
 
 function opacityToZeroWorkabout(){
 	var links = document.getElementById("myLinks");
-	links.style.display = "none";
+	if(links.style.display != "none")
+	{
+		links.style.display = "none";
+	}
+	else
+	{
+		links.style.opacity = "1";
+	}
 }
 
 function getSingleContact(c_id) {
