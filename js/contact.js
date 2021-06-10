@@ -166,11 +166,13 @@ function doSearch(x) {
 
 					cell = row.insertCell();
 					text = document.createTextNode(element.dateCreated);
-					cell.appendChild(text+" UTC");
+					text = text + " UTC";
+					cell.appendChild(text);
 
 					cell = row.insertCell();
 					text = document.createTextNode(element.lastModified);
-					cell.appendChild(text+" UTC");
+					text = text + " UTC";
+					cell.appendChild(text);
 
 					//	edit button
 					cell = row.insertCell();
