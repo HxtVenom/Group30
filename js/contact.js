@@ -267,10 +267,10 @@ function openHamburger(x) {
   x.classList.toggle("change");
 	//shows or hides the links in the hamburger
   var links = document.getElementById("myLinks");
-  if (links.style.display === "block") {
-    links.style.display = "none";
+  if (links.style.opacity === "100%") {
+    links.style.display = "0%";
   } else {
-    links.style.display = "block";
+    links.style.display = "100%";
   }
 }
 
