@@ -148,14 +148,17 @@ function changePassword() {
 	var oldPassword = document.getElementById("changePasswordOldPassword").value;
 	var newPassword1 = document.getElementById("changePasswordNewPassword1").value;
 	var newPassword2 = document.getElementById("changePasswordNewPassword2").value;
-	
+
 	if(newPassword1 != newPassword2)
 	{
 		document.getElementById("changePasswordText").innerHTML = "New Passwords Do Not Match";
 		return;
 	}
+
+  var oldHash = md5(oldPassword);
+  var newHash = md5(newPassword);
 	
-	var jsonPayload = JSON.stringify({u_id, oldPassword, newPassword1});
+	var jsonPayload = JSON.stringify({u_id, oldPassword: oldHash, newPassword: newHash});
 	var url = urlBase + '/changePassword.' + extension;
 	var xhr = new XMLHttpRequest
 	xhr.open("POST", url, true);
