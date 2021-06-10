@@ -269,11 +269,11 @@ function openHamburger(x) {
   var links = document.getElementById("myLinks");
   if (links.style.opacity === "1") {
     links.style.opacity = "0";
-	links.style.display = "block";
+	setTimeout(1000);
+	links.style.display = "none";
   } else {
     links.style.opacity = "1";
-	setTimeout(1000);
-	(links.style.display = "none";)
+	links.style.display = "block";
   }
 }
 
