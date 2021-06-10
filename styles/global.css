@@ -300,5 +300,12 @@ tr:nth-child(even){
 		font-size: 5vw;
 	}
 	
+	th, td {
+	font-size: 3.5vw;
+	}
 
+	table input {
+		margin:3.5px;
+		font-size: 3.5vw;
+	}
 }
