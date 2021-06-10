@@ -70,7 +70,7 @@ table {
 }
 
 th, td {
-	font-size: 1.75vw;
+	font-size: 1vw;
 }
 
 th {
@@ -247,6 +247,10 @@ tr:nth-child(even){
 {
 	[class*="col-"] {
 		width: 100%;
+	}
+
+	th, td {
+	font-size: 1.75vw;
 	}
 
 	.box {
