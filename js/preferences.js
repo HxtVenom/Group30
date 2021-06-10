@@ -139,6 +139,44 @@ function changeEmail(){
 	}
 }
 
+function changePassword() {
+	var oldPassword = document.getElementById("changePasswordOldPassword").value;
+	var newPassword1 = document.getElementById("changePasswordNewPassword1").value;
+	var newPassword2 = document.getElementById("changePasswordNewPassword2").value;
+	
+	if(newPassword1 != newPassword2)
+	{
+		document.getElementById("changePasswordText").innerHTML = "New Passwords Do Not Match";
+		return;
+	}
+	
+	var jsonPayload = JSON.stringify({u_id, oldPassword, newPassword1});
+	
+	var url = urlBase + '/changePassword.' + extension;
+	var xhr = new XMLHttpRequest
+	xhr.open("POST", url, true);
+	xhr. set requestHeader("content-type", "application/json; charset=UTF-8");
+	
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("changePasswordText").innerHTML="Password Succesfully Changed";
+			}
+			else if(this.readyState == 4 && this.status == 400)
+			{
+				document.getElementById("changePasswordText").innerHTML="Old Password Wrong";
+			}
+		};
+		xhr.send(jsonPayload);
+	}catch (err)
+	{
+		document.getElementById("").innerHTML = err.message;
+	}
+}
+
 function openPopup(id){
 	document.getElementById(id).style.display = "block";
 	document.getElementById("box2").classList.add("blur");
