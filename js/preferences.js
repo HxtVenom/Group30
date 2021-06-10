@@ -94,8 +94,26 @@ function deleteAccount(){
   }
 }
 
+function validEmail(email){
+	var emailRegex = /^[^.][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]{1,64}@{1}[a-zA-Z0-9-.]{1,255}[^.]\.{1}[a-z]+/;
+	var result = email.match(emailRegex);
+	if(email != result){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 function changeEmail(){
 	var email = document.getElementById("changeEmail").value;
+	
+	if(validEmail(email) == false)
+	{
+		document.getElementById("changeEmailText").innerHTML="Fail";
+		return;
+	}
+	
 	var jsonPayload = JSON.stringfy({u_id, email});
 	
 	var xhr = new XMLHttpRequest
