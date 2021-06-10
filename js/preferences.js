@@ -114,7 +114,7 @@ function changeEmail(){
 		return;
 	}
 	
-	var jsonPayload = JSON.stringfy({u_id, email});
+	var jsonPayload = JSON.stringify({u_id, email});
 	
 	var xhr = new XMLHttpRequest
 	xhr.open("POST", url, true);
