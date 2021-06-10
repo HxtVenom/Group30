@@ -273,20 +273,18 @@ function openHamburger(x) {
 	setTimeout(function() {opacityToZeroWorkabout();}, 300);
   } else {
 	links.style.display = "block";
-	setTimeout(function() {opacityToZeroWorkabout();}, 300);
+	setTimeout(function() {opacityToOneWorkabout();}, 300);
   }
 }
 
 function opacityToZeroWorkabout(){
 	var links = document.getElementById("myLinks");
-	if(links.style.display != "none")
-	{
-		links.style.display = "none";
-	}
-	if(links.style.opacity != "1" & links.style.display != "none")
-	{
-		links.style.opacity = "1";
-	}
+	links.style.display = "none";
+}
+
+function opacityToOneWorkabout() {
+	var links = document.getElementById("myLinks");
+	links.style.opacity = "1";
 }
 
 function getSingleContact(c_id) {
