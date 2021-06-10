@@ -15,7 +15,7 @@
   }else{
     $stmt = $conn->prepare("SELECT * FROM Contacts WHERE u_id=?
       AND ((fname LIKE ?) OR (lname LIKE ?)
-      OR (phone LIKE ?) OR (address LIKE ?) OR (email LIKE ?)) LIMIT ?");
+      OR (phone LIKE ?) OR (address LIKE ?) OR (email LIKE ?)) LIMIT ? ORDER BY lname, fname");
     $stmt->bind_param('isssssi', $u_id, $search, $search, $search, $search, $search, $contactCount);
     $execResult = $stmt->execute();
 
