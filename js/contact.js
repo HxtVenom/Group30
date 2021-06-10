@@ -226,12 +226,12 @@ function showAndHide() {
 	let table = document.getElementById("searchResults");
 	let rowCount = table.rows.length;
   var x = document.getElementById("noSearchResults");
-	if(x.style.display == 'block' && x.innerHTML == "No contacts found")
+	if(x.style.display == 'block' && x.innerHTML == "No contacts found" && rowCount == 0)
 	{
 		x.style.display = 'none';
 		return;
 	}
-	else if(x.style.display == 'none' && x.innerHTML == "No contacts found")
+	else if(x.style.display == 'none' && x.innerHTML == "No contacts found" && rowCount == 0)
 	{
 		x.style.display = 'block';
 		return;
