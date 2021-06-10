@@ -262,6 +262,15 @@ window.onclick = function(e){
     closePopup("deleteContact-popup");
 }
 
+function wait(ms)
+{
+    var d = new Date();
+    var d2 = null;
+    do { d2 = new Date(); }
+    while(d2-d < ms);
+}
+
+
 function openHamburger(x) {
 	//turns the hamburger into an X
   x.classList.toggle("change");
