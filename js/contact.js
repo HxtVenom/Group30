@@ -97,7 +97,7 @@ function addContact() {
 				document.getElementById("firstName").value = "";
 				document.getElementById("lastName").value = "";
 				document.getElementById("phone").value = "";
-        document.getElementById("email").value = "";
+				document.getElementById("email").value = "";
 				document.getElementById("address").value = "";
 				setTimeout(function()
 				{
