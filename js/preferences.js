@@ -1,6 +1,27 @@
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
-
 var extension = 'php';
+var u_id = getUID();
+
+function getUID() {
+	var u_id = "u_id=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	console.log(decodedCookie);
+	if(decodedCookie == "")
+	{
+		window.location.href="https://contacts.rruiz.dev/index.html";
+	}
+	var ca = decodedCookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while( c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(u_id) == 0) {
+			return c.substring(u_id.length, c.length);
+		}
+	}
+	return "";
+}
 
 function showAndHide(id) {
 	switch (id) {
@@ -36,6 +57,63 @@ function showAndHide(id) {
 			}	
 			break;
 	}
+}
+
+function deleteAccount(){
+	var jsonPayload = JSON.stringify({u_id});
+	var url = urlBase + '/deleteAccount.' + extension;
+
+	var xhr = new XMLHttpRequest
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("deleteAccountResult").innerHTML = "Account Successfully Deleted";
+				document.getElementById("deleteAccountButton-popup").style.display = 'none';
+				document.getElementById("cancelDeleteAccountButton").style.display = 'none';
+
+				setTimeout(function(){
+					logout();
+					document.getElementById("deleteAccountResult").innerHTML = "";
+				},2000)
+			}
+            else if(this.readyState == 4 && this.status == 404)
+            {
+                document.getElementById("deleteAccountResult").innerHTML = "No account found";
+            }
+		};
+		xhr.send(jsonPayload);
+	}catch (err)
+	{
+		document.getElementById("").innerHTML = err.message;
+  }
+}
+
+
+function openPopup(id){
+	document.getElementById(id).style.display = "block";
+	document.getElementById("box2").classList.add("blur");
+}
+
+function closePopup(id){
+	document.getElementById(id).style.display = "none";
+	document.getElementById("box2").classList.remove("blur");
+}
+
+window.onclick = function(e){
+	if(e.target == document.getElementById("contact-popup"))
+    closePopup("contact-popup");
+  else if(e.target == document.getElementById("editContact-popup"))
+    closePopup("editContact-popup");
+  else if(e.target == document.getElementById("deleteAccount-popup"))
+    closePopup("deleteAccount-popup");
+  else if(e.target == document.getElementById("deleteContact-popup"))
+    closePopup("deleteContact-popup");
 }
 
 function submitUsername()

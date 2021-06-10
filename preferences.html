@@ -20,6 +20,32 @@
 </head>
 
 <body>
+	<div class="modal" id="deleteAccount-popup">
+		<div class="modal-content">
+			<span onclick="closePopup('deleteAccount-popup')" class="modal-button">&times;</span>
+			<h2>Are You Sure You Want To Permanently Delete Your Account?</h2>
+			<!-- Took out the row to make the pop up taller-->
+			<div class="row">
+				<button style="color:red" type="button" id="deleteAccountButton-popup" onclick="deleteAccount()"><strong>Delete My Account</strong></button>
+				<!--May also have to move this to be under the open button -->
+				<p id="deleteAccountResult"></p>
+				<button type="button" id="cancelDeleteAccountButton" onclick="closePopup('deleteAccount-popup')">Cancel</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="deleteContact-popup">
+		<div class="modal-content">
+			<span onclick="closePopup('deleteContact-popup')" class="modal-button">&times;</span>
+			<h2>Are You Sure You Want To Permanently Delete This Contact?</h2>
+			<!-- Took out the row to make the pop up taller-->
+			<div class="row">
+				<button style="color:red" type="button" id="deleteContactButton-popup" onclick="deleteContact('u_id, element.c_id')"><strong>Delete This Contact</strong></button>
+				<!--May also have to move this to be under the open button -->
+				<p id="deleteContactResult"></p>
+				<button type="button" id="cancelDeleteContactButton" onclick="closePopup('deleteContact-popup')">Cancel</button>
+			</div>
+		</div>
+	</div>
 	<div class="box2">
 		<button type="button" onclick="window.location.href='https://contacts.rruiz.dev/contacts.html';">Return Home</button>
 		<div class="row">
@@ -44,7 +70,7 @@
 			<button style="display:none;" type="button" id="changePasswordCancel" onclick="showAndHide('changePassword');">Cancel</button>
 		</div>
 		<div class="row">
-			<button type="button">Delete Account</button>
+			<button type="button" onclick="openPopup('deleteAccount-popup')">Delete Account</button>
 		</div>
 		<p>This <span style="color: red; text-transform: uppercase;">permenantly</span> deletes your account</p>
 	</div>
