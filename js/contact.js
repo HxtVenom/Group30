@@ -269,7 +269,7 @@ function openHamburger(x) {
   var links = document.getElementById("myLinks");
   if (links.style.opacity === "1") {
     links.style.opacity = "0";
-	setTimeout(opacityToZeroWorkabout(), 1000);
+	setTimeout(function() {opacityToZeroWorkabout();}, 1000);
   } else {
     links.style.opacity = "1";
 	links.style.display = "block";
