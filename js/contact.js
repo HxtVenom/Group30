@@ -272,7 +272,7 @@ function openHamburger(x) {
 	setTimeout(function() {opacityToZeroWorkabout();}, 1000);
   } else {
 	setTimeout(function() {links.style.display = "block";}, 10);
-	links.style.opacity = "1";
+	//links.style.opacity = "1";
   }
 }
 
