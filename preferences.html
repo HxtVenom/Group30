@@ -38,7 +38,7 @@
 		</div>
 		
 		<div class="row">
-			<button type="button" id="changePasswordToggle" onclick="showAndHide('changePassword')">Change Password</button>
+			<button type="button" id="changePasswordToggle" onclick="openPopup('changePassword-popup')">Change Password</button>
 		</div>
 		<div class="row">
 			<input style="display:none;" type="text" id="changePassword" placeholder="New Password"></input>
@@ -77,5 +77,26 @@
 			<p id="changeEmailText"></p>
 		</div>
 	</div>
+	
+	<div class="modal" id="changePassword-popup">
+		<div class="modal-content">
+			<span onclick="closePopup('changeEmail-popup')" class="modal-button">&times;</span>
+			<div class="row">
+				<input type="password" id="changePasswordOldPassword" placeholder="Old Password"></input>
+			</div>
+			<div class="row">
+				<input type="password" id="changePaswordNewPassword1" placeholder="New Password"></input>
+			</div>
+			<div class="row">
+				<input type="password" id="changePasswordNewPassword2" placeholder="Repeat New Password"></input>
+			</div>
+			<div class="row">
+				<button type="button" id="changePasswordButton" onclick="changePassword()">Change Password</button>
+				<button type="button" id="closeChangePasswordButton" onclick="closePopup('changePassword-popup')">Cancel</button>
+			</div>
+			<p id="changePasswordText"></p>
+		</div>
+	</div>
+	
 </body>
 </html>
