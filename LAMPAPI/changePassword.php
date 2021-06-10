@@ -23,7 +23,7 @@
     if( false===$execResult ){
       http_response_code(400);
       returnError( $stmt->error );
-    }else if($conn->affected_row == 0){
+    }else if($conn->affected_rows == 0){
       http_response_code(400);
       returnError( "Incorrect Password" );
     }else{

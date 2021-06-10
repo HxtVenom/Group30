@@ -156,7 +156,7 @@ function changePassword() {
 	}
 
   var oldHash = md5(oldPassword);
-  var newHash = md5(newPassword);
+  var newHash = md5(newPassword1);
 	
 	var jsonPayload = JSON.stringify({u_id, oldPassword: oldHash, newPassword: newHash});
 	var url = urlBase + '/changePassword.' + extension;
