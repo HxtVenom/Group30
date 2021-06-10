@@ -36,12 +36,6 @@
 		<div class="row">
 			<button type="button" id="changeEmailToggle" onclick="openPopup('changeEmail-popup')">Change Email</button>
 		</div>
-		<div class="row">
-			<input style="display:none;" type="text" id="changeEmail" placeholder="New Email"></input>
-			<button style="display:none;" type="button" id="changeEmailButton" onclick="changeEmail()">Change Email</button>
-			<button style="display:none;" type="button" id="changeEmailCancel" onclick="showAndHide('changeEmail');">Cancel</button>
-			<p id="changeEmailText"></p>
-		</div>
 		
 		<div class="row">
 			<button type="button" id="changePasswordToggle" onclick="showAndHide('changePassword')">Change Password</button>
@@ -74,9 +68,12 @@
 		<div class="modal-content">
 			<span onclick="closePopup('changeEmail-popup')" class="modal-button">&times;</span>
 			<div class="row">
-				<input type="text" placeholder="New Email"></input>
+				<input type="text" id="changeEmail" placeholder="New Email"></input>
 				<button type="button" id="changeEmailButton" onclick="changeEmail()">Change Email</button>
 				<button type="button" id="closeChangeEmailButton" onclick="closePopup('changeEmail-popup')">Cancel</button>
+			</div>
+			<div class="row">
+				<p id="changeEmailText"></p>
 			</div>
 		</div>
 	</div>
