@@ -109,7 +109,7 @@ function changeEmail(){
 	
 	if(validEmail(email) == false)
 	{
-		document.getElementById("changeEmailText").innerHTML="Fail";
+		document.getElementById("changeEmailText").innerHTML="Enter Valid Email";
 		return;
 	}
 	
