@@ -126,6 +126,11 @@ function changeEmail(){
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("changeEmailText").innerHTML="Email Succesfully Changed";
+				setTimeout(function()
+				{
+					closePopup("changeEmail-popup");
+					document.getElementById("changeEmailText").innerHTML = "";
+				},2000)
 			}
 			else if(this.readyState == 4 && this.status == 409)
 			{
@@ -163,6 +168,11 @@ function changePassword() {
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("changePasswordText").innerHTML="Password Succesfully Changed";
+				setTimeout(function()
+				{
+					closePopup("changePassword-popup");
+					document.getElementById("changePasswordText").innerHTML = "";
+				},2000)
 			}
 			else if(this.readyState == 4 && this.status == 400)
 			{
