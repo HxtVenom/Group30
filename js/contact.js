@@ -283,7 +283,7 @@ function opacityToZeroWorkabout(){
 	{
 		links.style.display = "none";
 	}
-	else
+	if(links.style.opacity != "1")
 	{
 		links.style.opacity = "1";
 	}
