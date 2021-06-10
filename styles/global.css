@@ -167,6 +167,11 @@ tr:nth-child(even){
 	font-size: max(17px, 1vw);
 }
 
+
+.modal button{
+	font-size: 3.75vw;
+}
+
 .modal-content{
 	position: relative;
 	margin: auto;
@@ -184,11 +189,9 @@ tr:nth-child(even){
 	float: right;
 	color: gray;
 	font-weight: bold;
-	font-size: 1vw;
+	font-size: 8vw;
 	cursor: pointer;
-	/*Could also just make the X itself black and no border/backgroud*/
-	border: 1px solid black;
-	background-color: lightgray;
+	background-color: none;
 	padding-left: 4px;
 	padding-right: 4px;
 }
@@ -197,6 +200,7 @@ tr:nth-child(even){
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	width: 100%;
 }
 
 .modal-button:hover{
