@@ -206,6 +206,8 @@ function doSearch(x) {
 
         if(response.results.length == lastContactCount){
           document.getElementById("loadMore-btn").style.display = "none";
+        }else{
+          document.getElementById("loadMore-btn").style.display = "block";
         }
 
         lastContactCount = response.results.length;
