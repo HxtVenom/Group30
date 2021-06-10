@@ -88,6 +88,10 @@ td {
 	text-align: center;
 }
 
+table input {
+	font-size: 1.25vw;
+}
+
 tr:nth-child(even){
 	background-color: white
 }
