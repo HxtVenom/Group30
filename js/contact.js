@@ -228,8 +228,13 @@ function showAndHide() {
   var x = document.getElementById("noSearchResults");
 	if(x.style.display == 'block' || rowCount == 0)
 	{
-	//	x.style.display = 'none';
-    return;
+		x.style.display = 'none';
+		return;
+	}
+	else if(x.style.display == 'none' && rowCount == 0)
+	{
+		x.style.display = 'block';
+		return;
 	}
 
 
