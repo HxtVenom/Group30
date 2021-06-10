@@ -1,6 +1,27 @@
 var urlBase = 'https://contacts.rruiz.dev/LAMPAPI';
-
 var extension = 'php';
+var u_id = getUID();
+
+function getUID() {
+	var u_id = "u_id=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	console.log(decodedCookie);
+	if(decodedCookie == "")
+	{
+		window.location.href="https://contacts.rruiz.dev/index.html";
+	}
+	var ca = decodedCookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while( c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(u_id) == 0) {
+			return c.substring(u_id.length, c.length);
+		}
+	}
+	return "";
+}
 
 function showAndHide(id) {
 	switch (id) {
