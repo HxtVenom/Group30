@@ -268,9 +268,9 @@ function openHamburger(x) {
 	//shows or hides the links in the hamburger
   var links = document.getElementById("myLinks");
   if (links.style.opacity === "100%") {
-    links.style.display = "0";
+    links.style.opacity = "0";
   } else {
-    links.style.display = "1";
+    links.style.opacity = "1";
   }
 }
 
