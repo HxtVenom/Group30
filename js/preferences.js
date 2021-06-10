@@ -153,10 +153,6 @@ function closePopup(id){
 window.onclick = function(e){
 	if(e.target == document.getElementById("contact-popup"))
     closePopup("changeEmail-popup");
-  else if(e.target == document.getElementById("editContact-popup"))
-    closePopup("editContact-popup");
   else if(e.target == document.getElementById("deleteAccount-popup"))
     closePopup("deleteAccount-popup");
-  else if(e.target == document.getElementById("deleteContact-popup"))
-    closePopup("deleteContact-popup");
 }

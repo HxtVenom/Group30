@@ -35,7 +35,7 @@
 		</div>
 		<hr/>
 		<div class="row">
-			<button type="button" id="changeEmailToggle" onclick="showAndHide('changeEmail')">Change Email</button>
+			<button type="button" id="changeEmailToggle" onclick="showAndHide('changeEmail-popup')">Change Email</button>
 		</div>
 		<div class="row">
 			<input style="display:none;" type="text" id="changeEmail" placeholder="New Email"></input>
@@ -73,7 +73,7 @@
 	
 	<div class="modal" id="changeEmail-popup">
 		<div class="modal-content">
-			<span onclick="closePopup('changeEmailAccount-popup')" class="modal-button">&times;</span>
+			<span onclick="closePopup('changeEmail-popup')" class="modal-button">&times;</span>
 			<div class="row">
 				<input type="text" placeholder="New Email"></input>
 				<button type="button" id="changeEmailButton" onclick="changeEmail()">Change Email</button>
