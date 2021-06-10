@@ -267,10 +267,12 @@ function openHamburger(x) {
   x.classList.toggle("change");
 	//shows or hides the links in the hamburger
   var links = document.getElementById("myLinks");
-  if (links.style.opacity === "100") {
+  if (links.style.opacity === "1") {
     links.style.opacity = "0";
+	links.style.display = "block";
   } else {
     links.style.opacity = "1";
+	setTimeout((links.style.display = "none"), 1000);
   }
 }
 
